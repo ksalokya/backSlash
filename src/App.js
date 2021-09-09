@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import './App.css'
 import firebase from "firebase";
-import EditorComponent from "./editor/editor";
-import SidebarComponent from "./sidebar/sidebar";
-import NavbarComponent from "./navbar/navbar"
-import {Container,Row,Col} from 'react-bootstrap';
+import EditorComponent from "./components/editor/editor";
+import SidebarComponent from "./components/sidebar/sidebar";
+import NavbarComponent from "./components/navbar/navbar"
+import {Row,Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {ClimbingBoxLoader} from 'react-spinners'
 import styles from './styles';
@@ -24,9 +24,9 @@ class App extends Component{
     }
 
     componentWillMount() {
-        if(this.timeHanlerv){
-            clearTimeout(this.timeHanlerv);
-            this.timeHanlerv=0;
+        if(this.timeHandler){
+            clearTimeout(this.timeHandler);
+            this.timeHandler=0;
         }
     }
 
@@ -37,15 +37,16 @@ class App extends Component{
         return(
             <div>
                 {this.state.loading ?
-                    <div>
-                        <h3 className={classes.loader1}>backSlash</h3>
+                    <div className={classes.loaderBackground}>
+                        <h3 className={classes.loader1}> &lt; backSlash &gt;</h3>
                         <ClimbingBoxLoader
-                            color={"#000"}
+                            color={"#fff"}
                             speedMultiplier="1.2"
                             size={30}
                             loading={this.state.loading}
                         />
                         <p className={classes.loader2}>An online Text Editor + Notes App.</p>
+                        <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color:'blue'}} href="https://www.linkedin.com/in/salokya-kumar/">Salokya Kumar.</a></p>
                     </div>
                     :
                     <div className="app-container">
@@ -101,11 +102,9 @@ class App extends Component{
                             user:firebase.auth().currentUser.email
                         });
                     });
-                {
-                    this.timeHanlerv = setTimeout(() => {
+                    this.timeHandler = setTimeout(() => {
                         this.setState({loading: false});
                     }, 4000)
-                }
             }
         });
     };
