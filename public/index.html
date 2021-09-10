@@ -3,11 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content=""
+    />
+    <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="./favicon.ico" type="image/gif" sizes="16x16">
     <title>backSlash</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="preloader"></div>
     <div id="root"></div>
+
+    <script>
+      var loader = document.getElementById("preloader");
+      window.addEventListener("load",function(){
+        loader.style.display = "none";
+      })
+    </script>
 
   </body>
 </html>
