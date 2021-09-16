@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Chip from "@material-ui/core/Chip";
 import FaceIcon from "@material-ui/icons/Face";
+import LogoutIcon from '@mui/icons-material/Logout';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import {Navbar,Nav,Button,Dropdown,ButtonGroup} from 'react-bootstrap';
@@ -33,7 +34,7 @@ class NavbarComponent extends Component{
                                 <Dropdown as={ButtonGroup} size="sm">
                                     <Button style={{backgroundColor:'#29487d'}} >
                                         <MediaQuery minWidth={720}><Chip icon={<FaceIcon />} label={user}/></MediaQuery>
-                                        <MediaQuery maxWidth={720}><FaceIcon onClick={this.signOut}/></MediaQuery>
+                                        <MediaQuery maxWidth={720}><LogoutIcon onClick={this.signOut}/></MediaQuery>
                                     </Button>
 
                                         <MediaQuery minWidth={720}>
