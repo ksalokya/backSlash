@@ -21,7 +21,7 @@ firebase.initializeApp({
 const routing = (
     <Router>
         <div id='routing-container'>
-            <Route exact path="/"> <Redirect to="/login"></Redirect></Route>
+            <Route exact path="/"> <Redirect to="/signup"></Redirect></Route>
             <Route path='/login' component={LoginComponent}></Route>
             <Route path='/signup' component={SignupComponent}></Route>
             <Route exact path='/app' component={App}></Route>
