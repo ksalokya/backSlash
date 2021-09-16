@@ -95,10 +95,6 @@ class SignIn extends React.Component {
                                     autoComplete="off"
                                     onChange={e => this.userTyping("password", e)}
                                 />
-                                <FormControlLabel
-                                    control={<Checkbox value="remember" color="primary"/>}
-                                    label="Remember me"
-                                />
                                 <Button
                                     style={buttonStyle}
                                     type="submit"
