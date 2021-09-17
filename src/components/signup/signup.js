@@ -110,6 +110,7 @@ class SignUp extends React.Component {
                                             label="Password Confirmation"
                                             type="password"
                                             id="password-confirmation"
+                                            autoComplete="off"
                                             onChange={e => this.userTyping("passwordConfirmation", e)}
                                         />
                                     </Grid>

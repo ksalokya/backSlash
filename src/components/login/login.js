@@ -51,6 +51,7 @@ class SignIn extends React.Component {
                                         id="email"
                                         label="Email Address"
                                         name="email"
+                                        autoComplete="off"
                                         autoFocus
                                         onChange={e => this.userTyping("email", e)}
                                     />
@@ -61,6 +62,7 @@ class SignIn extends React.Component {
                                         margin="normal"
                                         required={true}
                                         fullWidth
+                                        autoComplete="off"
                                         name="password"
                                         label="Password"
                                         type="password"
