@@ -104,15 +104,13 @@ class SignUp extends React.Component {
                         </Button>
                         <Grid container justify="center">
                             <Grid item>
-                                <Link
+                                <Typography
                                     className={classes.link}
-                                    href="#"
                                     variant="body2"
-                                    to="/login"
                                 >
                                     Already have an account?{" "}
-                                    <span className={classes.signIn}>Sign in</span>
-                                </Link>
+                                    <Link to="/login" className={classes.signIn}>Sign in</Link>
+                                </Typography>
                             </Grid>
                         </Grid>
                     </form>
