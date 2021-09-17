@@ -114,10 +114,10 @@ class SignIn extends React.Component {
                                 ) : null}
                                 <Grid container justify="center">
                                     <Grid className={classes.linkContainer}>
-                                        <Link className={classes.link} variant="body2" to="/signup">
+                                        <Typography className={classes.link} variant="body2">
                                             Don't have an account?{" "}
-                                            <span className={classes.signUp}>Sign Up</span>
-                                        </Link>
+                                            <Link to="/signup" className={classes.signUp}>Sign Up</Link>
+                                        </Typography>
                                     </Grid>
                                 </Grid>
                             </form>
