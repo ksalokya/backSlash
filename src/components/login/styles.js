@@ -40,10 +40,6 @@ const styles = theme => ({
         color: "#000000",
         textDecoration: "none"
     },
-    form: {
-        width: "100%",
-        marginTop: theme.spacing(3)
-    },
     signUp: {
         color: "#29487d",
         textTransform: "upperCase",
