@@ -6,6 +6,24 @@ const styles = theme => ({
             overflow:'hidden'
         }
     },
+    loader1:{
+        color:'#fff',
+        textAlign: 'center',
+        position:'relative',
+        top:'25vh',
+        textDecoration:'underline',
+        fontSize: '40px'
+    },
+    loader2:{
+        color:'#fff',
+        textAlign: 'center',
+        position:'relative',
+        top:'60vh',
+        fontSize: '25px',
+        "@media only screen and (max-width:768px)" : {
+            fontSize:'1.05rem'
+        }
+    },
     paper: {
         marginTop: '35%',
         display: "flex",

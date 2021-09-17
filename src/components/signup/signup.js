@@ -11,16 +11,32 @@ import Container from "@material-ui/core/Container";
 import styles from "./styles";
 import { withStyles } from "@material-ui/core/styles";
 import firebase from "firebase";
+import {ClimbingBoxLoader} from 'react-spinners'
 
 class SignUp extends React.Component {
+
     constructor() {
         super();
         this.state = {
             email: null,
             password: null,
             passwordConfirmation: null,
-            signupError: ""
+            signupError: "",
+            loading:true
         };
+    }
+
+    componentDidMount() {
+        this.timeHanlerv=  setTimeout(() => {
+            this.setState({ loading: false });
+        }, 3000)
+    }
+
+    componentWillMount() {
+        if(this.timeHanlerv){
+            clearTimeout(this.timeHanlerv);
+            this.timeHanlerv=0;
+        }
     }
 
     render() {
@@ -31,91 +47,106 @@ class SignUp extends React.Component {
         };
 
         return (
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <div className={classes.paper}>
-                    <Link className={classes.link} to="/landing">
-                    </Link>
-                    <Avatar className={classes.avatar}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign up
-                    </Typography>
-                    <form onSubmit={e => this.submitSignup(e)} className={classes.form}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12}>
-                                <TextField
-                                    style={{ color: "#ffffff" }}
-                                    autoFocus
-                                    variant="outlined"
-                                    required={true}
+            <div>
+                {this.state.loading ?
+                    <div>
+                        <h3 className={classes.loader1}> &lt; backSlash &gt;</h3>
+                        <ClimbingBoxLoader
+                            color={"#fff"}
+                            speedMultiplier="1.2"
+                            size={30}
+                            loading={this.state.loading}
+                        />
+                        <p className={classes.loader2}>An online Text Editor + Notes App.</p>
+                        <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color:'blue'}} href="https://www.linkedin.com/in/salokya-kumar/">Salokya Kumar.</a></p>
+                    </div>
+                    :
+                    <Container component="main" maxWidth="xs">
+                        <CssBaseline />
+                        <div className={classes.paper}>
+                            <Link className={classes.link} to="/landing">
+                            </Link>
+                            <Avatar className={classes.avatar}>
+                                <LockOutlinedIcon />
+                            </Avatar>
+                            <Typography component="h1" variant="h5">
+                                Sign up
+                            </Typography>
+                            <form onSubmit={e => this.submitSignup(e)} className={classes.form}>
+                                <Grid container spacing={2}>
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            style={{ color: "#ffffff" }}
+                                            autoFocus
+                                            variant="outlined"
+                                            required={true}
+                                            fullWidth
+                                            id="email"
+                                            label="Email Address"
+                                            name="email"
+                                            autoComplete="off"
+                                            onChange={e => this.userTyping("email", e)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            variant="outlined"
+                                            required={true}
+                                            fullWidth
+                                            name="password"
+                                            label="Password"
+                                            type="password"
+                                            id="password"
+                                            autoComplete="off"
+                                            onChange={e => this.userTyping("password", e)}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <TextField
+                                            variant="outlined"
+                                            required={true}
+                                            fullWidth
+                                            name="passwordConfirmation"
+                                            label="Password Confirmation"
+                                            type="password"
+                                            id="password-confirmation"
+                                            onChange={e => this.userTyping("passwordConfirmation", e)}
+                                        />
+                                    </Grid>
+                                    {this.state.signupError ? (
+                                        <Grid container justify="center">
+                                            <Grid item>
+                                                <Typography className={classes.errorText} variant="body2">
+                                                    {this.state.signupError}
+                                                </Typography>
+                                            </Grid>
+                                        </Grid>
+                                    ) : null}
+                                </Grid>
+                                <Button
+                                    type="submit"
                                     fullWidth
-                                    id="email"
-                                    label="Email Address"
-                                    name="email"
-                                    autoComplete="off"
-                                    onChange={e => this.userTyping("email", e)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required={true}
-                                    fullWidth
-                                    name="password"
-                                    label="Password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="off"
-                                    onChange={e => this.userTyping("password", e)}
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField
-                                    variant="outlined"
-                                    required={true}
-                                    fullWidth
-                                    name="passwordConfirmation"
-                                    label="Password Confirmation"
-                                    type="password"
-                                    id="password-confirmation"
-                                    onChange={e => this.userTyping("passwordConfirmation", e)}
-                                />
-                            </Grid>
-                            {this.state.signupError ? (
+                                    variant="contained"
+                                    className={classes.submit}
+                                    style={buttonStyle}
+                                >
+                                    Sign Up
+                                </Button>
                                 <Grid container justify="center">
                                     <Grid item>
-                                        <Typography className={classes.errorText} variant="body2">
-                                            {this.state.signupError}
+                                        <Typography
+                                            className={classes.link}
+                                            variant="body2"
+                                        >
+                                            Already have an account?{" "}
+                                            <Link to="/login" className={classes.signIn}>Sign in</Link>
                                         </Typography>
                                     </Grid>
                                 </Grid>
-                            ) : null}
-                        </Grid>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            className={classes.submit}
-                            style={buttonStyle}
-                        >
-                            Sign Up
-                        </Button>
-                        <Grid container justify="center">
-                            <Grid item>
-                                <Typography
-                                    className={classes.link}
-                                    variant="body2"
-                                >
-                                    Already have an account?{" "}
-                                    <Link to="/login" className={classes.signIn}>Sign in</Link>
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                    </form>
-                </div>
-            </Container>
+                            </form>
+                        </div>
+                    </Container>}
+            </div>
         );
     }
 
