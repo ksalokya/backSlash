@@ -7,7 +7,7 @@ const styles = theme => ({
         }
     },
     paper: {
-        marginTop: '50%',
+        marginTop: '40%',
         display: "flex",
         flexDirection: "column",
         alignItems: "center"
@@ -27,18 +27,23 @@ const styles = theme => ({
         margin: theme.spacing(1),
         backgroundColor: "#00C170"
     },
-    errorText: {
-        color: "#000",
-        textAlign: "center",
-        marginTop: theme.spacing(1),
-        marginBottom: theme.spacing(1)
-    },
-    linkContainer:{
-        marginTop:"3%",
+    form: {
+        width: "100%",
+        marginTop: theme.spacing(2)
     },
     link: {
         color: "#000000",
         textDecoration: "none"
+    },
+    submit: {
+        margin: theme.spacing(2, 0, 2)
+    },
+    errorText: {
+        color: "white",
+        textAlign: "center"
+    },
+    linkContainer:{
+        marginTop:"3%",
     },
     signUp: {
         color: "#29487d",

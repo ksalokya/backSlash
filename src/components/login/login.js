@@ -38,33 +38,50 @@ class SignIn extends React.Component {
                             <LockOutlinedIcon/>
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Sign in
+                            Sign In
                         </Typography>
-                        <form onSubmit={e => this.submitLogin(e)}>
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Email Address"
-                                name="email"
-                                autoComplete="off"
-                                autoFocus
-                                onChange={e => this.userTyping("email", e)}
-                            />
-                            <TextField
-                                variant="outlined"
-                                margin="normal"
-                                required
-                                fullWidth
-                                name="password"
-                                label="Password"
-                                type="password"
-                                id="password"
-                                autoComplete="off"
-                                onChange={e => this.userTyping("password", e)}
-                            />
+                        <form onSubmit={e => this.submitLogin(e)} className={classes.form}>
+                            <Grid container>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required={true}
+                                        fullWidth
+                                        id="email"
+                                        label="Email Address"
+                                        name="email"
+                                        autoFocus
+                                        onChange={e => this.userTyping("email", e)}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        variant="outlined"
+                                        margin="normal"
+                                        required={true}
+                                        fullWidth
+                                        name="password"
+                                        label="Password"
+                                        type="password"
+                                        id="password"
+                                        onChange={e => this.userTyping("password", e)}
+                                    />
+                                </Grid>
+                            {this.state.loginError ? (
+                                <Grid container justify="center">
+                                    <Grid item>
+                                        <Typography
+                                            className={classes.errorText}
+                                            component="h5"
+                                            variant="body2"
+                                        >
+                                            The email address or password entered is incorrect
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                            ) : null}
+                            </Grid>
                             <Button
                                 style={buttonStyle}
                                 type="submit"
@@ -75,17 +92,8 @@ class SignIn extends React.Component {
                             >
                                 Sign In
                             </Button>
-                            {this.state.loginError ? (
-                                <Typography
-                                    className={classes.errorText}
-                                    component="h5"
-                                    variant="body2"
-                                >
-                                    The email address or password entered is incorrect
-                                </Typography>
-                            ) : null}
                             <Grid container justify="center">
-                                <Grid className={classes.linkContainer}>
+                                <Grid item className={classes.linkContainer}>
                                     <Typography className={classes.link} variant="body2">
                                         Don't have an account?{" "}
                                         <Link to="/signup" className={classes.signUp}>Sign Up</Link>

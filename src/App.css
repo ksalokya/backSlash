@@ -3,9 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
 }
-#evernote-container {
-    height: 100%;
-}
+
 .app-container {
     height: 100vh;
     margin-left: 0px !important;
