@@ -7,7 +7,7 @@ const styles = theme => ({
         }
     },
     paper: {
-        marginTop: '38%',
+        marginTop: '35%',
         display: "flex",
         flexDirection: "column",
         alignItems: "center"
