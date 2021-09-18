@@ -61,9 +61,7 @@ class SidebarItemComponent extends Component{
                         <Modal.Title className={classes.title}>WARNING</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className={classes.bodyText}>
-                        Are you sure you want to delete : <strong>{_note.title} ?</strong>
-                        <br/>
-                        Note <span style={{color:'red'}}>*</span> - This can't be recovered back.
+                        Are you sure you want to delete : <strong>{_note.title} </strong> ?
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="warning" onClick={this.handleClose}>

@@ -45,7 +45,7 @@ const styles = theme => ({
     },
     newNoteSubmitBtn: {
         width: '100%',
-        backgroundColor: '#28787c',
+        backgroundColor: '#d61579',
         borderRadius: '0px',
         color: 'white',
         '&:hover' :{
