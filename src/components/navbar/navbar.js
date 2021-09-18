@@ -4,7 +4,7 @@ import FaceIcon from "@material-ui/icons/Face";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
-import {Navbar,Nav,Button,Dropdown,ButtonGroup} from 'react-bootstrap';
+import {Navbar, Nav, Button, Dropdown, ButtonGroup, Modal} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import firebase from "firebase";
 import MediaQuery from 'react-responsive'
@@ -12,6 +12,25 @@ import logo from "../images/brand.png"
 import '../../App.css'
 
 class NavbarComponent extends Component{
+
+    constructor() {
+        super();
+        this.state = {
+            show:false
+        }
+    }
+
+    handleClose = () => {
+        this.setState({
+            show:false
+        })
+    }
+
+    handleShow = () => {
+        this.setState({
+            show:true
+        })
+    }
 
     render(){
         const {user,classes} = this.props;
@@ -34,7 +53,24 @@ class NavbarComponent extends Component{
                                 <Dropdown as={ButtonGroup} size="sm">
                                     <Button style={{backgroundColor:'#29487d'}} >
                                         <MediaQuery minWidth={720}><Chip icon={<FaceIcon />} label={user}/></MediaQuery>
-                                        <MediaQuery maxWidth={720}><LogoutIcon onClick={this.signOut}/></MediaQuery>
+                                        <MediaQuery maxWidth={720}><LogoutIcon onClick={() => {
+                                            this.handleShow();
+                                        }}/></MediaQuery>
+
+                                        <Modal centered show={this.state.show} onHide={this.handleClose}>
+                                            <Modal.Body className={classes.bodyText}>
+                                                Are you sure you want to Sign Out?
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="warning" onClick={this.handleClose}>
+                                                    Close
+                                                </Button>
+                                                <Button variant="danger" onClick={() => this.signOut()}>
+                                                    Sign Out
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
+
                                     </Button>
 
                                         <MediaQuery minWidth={720}>

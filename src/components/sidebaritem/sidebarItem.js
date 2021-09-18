@@ -29,9 +29,6 @@ class SidebarItemComponent extends Component{
         })
     }
 
-    handleClose = () => this.setState({show:false})
-    handleShow = () => this.setState({show:true})
-
     render(){
 
         const {_note,_index,selectedNoteIndex,classes} = this.props;
@@ -51,7 +48,6 @@ class SidebarItemComponent extends Component{
                         ></ListItemText>
                     </div>
                     <DeleteIcon onClick={() => {
-                        //this.deleteNote(_note);
                         this.handleShow();
                     }} className={classes.deleteIcon}></DeleteIcon>
                 </ListItem>
