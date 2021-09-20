@@ -51,8 +51,8 @@ class SidebarComponent extends Component{
                                             selectedNoteIndex={selectedNoteIndex}
                                             selectNote={this.selectNote}
                                             deleteNote={this.deleteNote}
-                                        ></SidebarItemComponent>
-                                        <Divider></Divider>
+                                        />
+                                        <Divider/>
                                     </div>
                                 )
                             })

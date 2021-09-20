@@ -45,7 +45,7 @@ class SidebarItemComponent extends Component{
                         <ListItemText
                             primary={_note.title}
                             secondary={removeHTMLTags(_note.body.substring(0,30)) + '...'}
-                        ></ListItemText>
+                        />
                     </div>
                     <DeleteIcon onClick={() => {
                         this.handleShow();

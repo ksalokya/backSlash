@@ -128,7 +128,6 @@ class SignIn extends React.Component {
                 },
                 err => {
                     this.setState({ loginError: "server error" });
-                    console.log(err);
                 }
             );
     };

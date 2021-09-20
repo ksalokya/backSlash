@@ -16,7 +16,7 @@ firebase.initializeApp({
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 });
 
-//firebase.analytics();
+firebase.analytics();
 
 const routing = (
     <Router>

@@ -32,7 +32,7 @@ class SignUp extends React.Component {
         }, 3000)
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         if(this.timeHanlerv){
             clearTimeout(this.timeHanlerv);
             this.timeHanlerv=0;
@@ -44,7 +44,7 @@ class SignUp extends React.Component {
 
         return (
             <div>
-                {this.state.loading ?
+                {this.state.loading?
                     <div>
                         <h3 className={classes.loader1}> &lt; backSlash &gt;</h3>
                         <ClimbingBoxLoader
@@ -135,7 +135,7 @@ class SignUp extends React.Component {
                                             variant="body2"
                                         >
                                             Already have an account?{" "}
-                                            <Link to="/login" className={classes.signIn}>Sign in</Link>
+                                            <Link to="/login" className={classes.signIn} >Sign in</Link>
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -190,7 +190,6 @@ class SignUp extends React.Component {
                                 this.props.history.push("/app");
                             },
                             dbError => {
-                                console.log(dbError);
                                 this.setState({ signupError: "Failed to add user" });
                             }
                         );
