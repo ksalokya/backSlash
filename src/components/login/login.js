@@ -25,11 +25,7 @@ class SignIn extends React.Component {
 
     render() {
         const { classes } = this.props;
-
-        const buttonStyle = {
-
-        };
-
+        
         return (
                 <Container component="main" maxWidth="xs">
                     <CssBaseline/>
