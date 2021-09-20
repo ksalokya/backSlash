@@ -50,7 +50,8 @@ const styles = theme => ({
         marginTop: theme.spacing(3)
     },
     submit: {
-        margin: theme.spacing(3, 0, 2)
+        margin: theme.spacing(3, 0, 2),
+        backgroundColor: "#00C170"
     },
     errorText: {
         color: "white",

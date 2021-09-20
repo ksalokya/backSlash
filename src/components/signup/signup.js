@@ -42,10 +42,6 @@ class SignUp extends React.Component {
     render() {
         const { classes } = this.props;
 
-        const buttonStyle = {
-            backgroundColor: "#00C170"
-        };
-
         return (
             <div>
                 {this.state.loading ?
@@ -129,7 +125,6 @@ class SignUp extends React.Component {
                                     fullWidth
                                     variant="contained"
                                     className={classes.submit}
-                                    style={buttonStyle}
                                 >
                                     Sign Up
                                 </Button>
