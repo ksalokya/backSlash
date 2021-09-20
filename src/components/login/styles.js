@@ -36,7 +36,8 @@ const styles = theme => ({
         textDecoration: "none"
     },
     submit: {
-        margin: theme.spacing(2, 0, 2)
+        margin: theme.spacing(2, 0, 2),
+        backgroundColor: "#00C170"
     },
     errorText: {
         color: "white",

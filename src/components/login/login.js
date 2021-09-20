@@ -27,7 +27,7 @@ class SignIn extends React.Component {
         const { classes } = this.props;
 
         const buttonStyle = {
-            backgroundColor: "#00C170"
+
         };
 
         return (
@@ -85,7 +85,6 @@ class SignIn extends React.Component {
                             ) : null}
                             </Grid>
                             <Button
-                                style={buttonStyle}
                                 type="submit"
                                 fullWidth
                                 variant="contained"
