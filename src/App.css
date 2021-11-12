@@ -44,3 +44,30 @@ html, body {
     top: 50px;
     left: calc(50% - 165px);
 }
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='']::before
+{
+    content: 'Default';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='times-new-roman']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='times-new-roman']::before {
+    content: 'TNR';
+    font-family: 'Times New Roman';
+}
+
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-value='arial']::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='arial']::before
+{
+    content: 'Arial';
+    font-family: 'Arial';
+}
+
+.ql-font-arial {
+    font-family: 'Arial';
+}
+
+.ql-font-times-new-roman {
+    font-family: 'Times New Roman';
+}

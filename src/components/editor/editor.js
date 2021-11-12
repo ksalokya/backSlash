@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ReactQuill from 'react-quill';
+import ReactQuill, { Quill } from 'react-quill';
 import debounce from '../helper/helpers';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 import { withStyles } from '@material-ui/core/styles';
@@ -107,9 +107,15 @@ class EditorComponent extends Component{
     },1500);
 }
 
+let Font = Quill.import('formats/font');
+Font.whitelist = ['sansserif','serif','monospace','times-new-roman', 'arial'];
+Quill.register(Font, true);
+
+
+
 EditorComponent.modules = {
     toolbar: [
-        [{ header: "1" }, { header: "2" }, { font: [] }],
+        [{ header: "1" }, { header: "2" }, { font: ['sansserif','serif','monospace','times-new-roman', 'arial'] }],
         [{ size: [] }],
         ["bold", "italic", "underline", "strike", "blockquote", "code-block"],
         [
