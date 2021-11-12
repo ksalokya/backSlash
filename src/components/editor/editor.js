@@ -112,6 +112,7 @@ EditorComponent.modules = {
             { list: "ordered" },
             { list: "bullet" },
         ],
+        [{ 'script': 'sub'}, { 'script': 'super' }],
         [
             { indent: "-1" },
             { 'align': [] },
