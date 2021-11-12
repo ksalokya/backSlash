@@ -115,7 +115,8 @@ EditorComponent.modules = {
             { indent: "+1" }
         ],
         [{ 'direction': 'rtl' }],
-        ["link", "image", "video"]
+        ["link", "image", "video"],
+        ['clean']
     ],
     clipboard: {
         matchVisual: false
