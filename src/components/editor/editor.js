@@ -111,7 +111,10 @@ EditorComponent.modules = {
         [
             { list: "ordered" },
             { list: "bullet" },
+        ],
+        [
             { indent: "-1" },
+            { 'align': [] },
             { indent: "+1" }
         ],
         [{ 'direction': 'rtl' }],
