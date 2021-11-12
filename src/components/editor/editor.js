@@ -117,6 +117,7 @@ EditorComponent.modules = {
             { 'align': [] },
             { indent: "+1" }
         ],
+        [{ 'color': [] }, { 'background': [] }],
         [{ 'direction': 'rtl' }],
         ["link", "image", "video"],
         ['clean']
