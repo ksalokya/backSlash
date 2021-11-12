@@ -73,6 +73,7 @@ class EditorComponent extends Component{
                 <ReactQuill
                     value={this.state.text}
                     onChange={this.updateBody}
+                    placeholder={"Start writing from here..."}
                     modules={EditorComponent.modules}
                     formats={EditorComponent.formats}
                 />
