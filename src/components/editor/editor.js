@@ -114,31 +114,13 @@ EditorComponent.modules = {
             { indent: "-1" },
             { indent: "+1" }
         ],
-        ["link", "image", "video"],
-        ["clean"]
+        [{ 'direction': 'rtl' }],
+        ["link", "image", "video"]
     ],
     clipboard: {
         matchVisual: false
     }
 };
 
-
-EditorComponent.formats = [
-    "header",
-    "font",
-    "size",
-    "bold",
-    "italic",
-    "underline",
-    "strike",
-    "blockquote",
-    "list",
-    "bullet",
-    "indent",
-    "link",
-    "image",
-    "video",
-    "code-block"
-];
 
 export default withStyles(styles)(EditorComponent);
