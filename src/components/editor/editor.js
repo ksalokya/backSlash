@@ -28,7 +28,7 @@ class EditorComponent extends Component{
             id:this.props.selectedNote.id,
             update: this.props.selectedNote.timestamp
                 ? this.props.selectedNote.timestamp.toDate()
-                : new Date()
+                : new Date().toDateString()
         });
     }
 
@@ -40,7 +40,7 @@ class EditorComponent extends Component{
                 id:this.props.selectedNote.id,
                 update: this.props.selectedNote.timestamp
                     ? this.props.selectedNote.timestamp.toDate()
-                    : new Date()
+                    : new Date().toDateString()
             });
         }
     };
@@ -111,12 +111,10 @@ let Font = Quill.import('formats/font');
 Font.whitelist = ['sansserif','serif','monospace','times-new-roman', 'arial'];
 Quill.register(Font, true);
 
-
-
 EditorComponent.modules = {
     toolbar: [
-        [{ header: "1" }, { header: "2" }, { font: ['sansserif','serif','monospace','times-new-roman', 'arial'] }],
-        [{ size: [] }],
+        [{ header: "1" }, { header: "2" }, { size: [] }],
+        [{ font: ['sansserif','serif','monospace','times-new-roman', 'arial'] }],
         ["bold", "italic", "underline", "strike", "blockquote", "code-block"],
         [
             { list: "ordered" },
@@ -137,6 +135,5 @@ EditorComponent.modules = {
         matchVisual: false
     }
 };
-
 
 export default withStyles(styles)(EditorComponent);
