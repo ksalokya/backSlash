@@ -6,6 +6,10 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './styles';
 import Typography from "@material-ui/core/Typography";
 
+import katex from "katex";
+import "katex/dist/katex.min.css";
+window.katex = katex;
+
 class EditorComponent extends Component{
     constructor(props) {
         super(props);
@@ -120,7 +124,7 @@ EditorComponent.modules = {
         ],
         [{ 'color': [] }, { 'background': [] }],
         [{ 'direction': 'rtl' }],
-        ["link", "image", "video"],
+        ["link", "image", "video","formula"],
         ['clean']
     ],
     clipboard: {
