@@ -11,15 +11,12 @@
 |<h3>Create New Content/Note with just a simple click to organize your data.</h3> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/04-new%20note.png" width="400" height="400" />|
 |---|---|
 
-|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/05-use%20as%20note.png" width="700" height="400" /> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/06-use%20as%20editor.png" width="700" height="400" /> |
+|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/05-use%20as%20note.png" width="700" height="400" /> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/06-use%20as%20report.png" width="700" height="400" /> |
 |---|---|
 |<h3 align="center">Use a Note Keeping.</h3>|<h3 align="center">Use as text editor</h3>|
 
 ### Toolbar with many features.
 <img src="https://github.com/ksalokya/backSlash/blob/main/misc/08%20-%20toolbar.png">
-
-|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/09-delete%20note.png" width="600" height="500" />| <h3>Delete with just a simple click and confirmation.</h3> |
-|---|---|
 
 
 
