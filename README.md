@@ -15,6 +15,13 @@
 |---|---|
 |<h3 align="center">Use a Note Keeping.</h3>|<h3 align="center">Use as text editor</h3>|
 
+### Toolbar with many features.
+<img src="https://github.com/ksalokya/backSlash/blob/main/misc/08%20-%20toolbar.png">
+
+|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/09-delete%20note.png" width="600" height="500" />| <h3>Delete with just a simple click and confirmation.</h3> |
+|---|---|
+
+
 
 
 
