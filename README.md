@@ -12,6 +12,11 @@
 |---|---|
 
 <div align="center">
+  <img src="https://github.com/ksalokya/backSlash/blob/main/misc/06-use%20as%20report.png" /> 
+  <h3>Use as Text Editor.</h3>    
+</div>
+
+<div align="center">
   <img src="https://github.com/ksalokya/backSlash/blob/main/misc/05-use%20as%20note.png" /> 
   <h3>Use as Note Keeping.</h3>    
 </div>  
