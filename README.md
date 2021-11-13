@@ -1,8 +1,9 @@
 # 📋 backSlash - [Website](https://backslash.netlify.app)
 ## Gather your thoughts and make them even better!
 
-#### A Text Editor cum Notes Keeping Web App to organize everything on digital notebook.
 
-#### It has sign-up/sign-in feature by which a user can create/update their content on the go securely.
+|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/01-intro.png" width="1000" height="400" />| <h3>A Text Editor cum Notes Keeping Web App to organize everything on digital notebook.</h3> |
+|---|---|
 
-#### Supports multiple formats like inline, block and embeds.
+
+
