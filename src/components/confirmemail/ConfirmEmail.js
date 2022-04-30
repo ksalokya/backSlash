@@ -1,7 +1,7 @@
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
-import styles from "../confirmemail/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import styles from './styles';
 
 import Avatar from "@material-ui/core/Avatar";
 import Mail from "@material-ui/icons/Mail";

@@ -21,6 +21,10 @@ html, body {
     top:40vh;
 }
 
+.navbar-nav{
+    margin-right: 1% !important;
+}
+
 .side-item{
     padding-left: 0px !important;
     padding-right: 0px !important;

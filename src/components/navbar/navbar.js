@@ -48,7 +48,7 @@ class NavbarComponent extends Component{
                         />{' '}
                         backSlash
                     </Navbar.Brand>
-                    <Nav className="ml-auto">
+                    <Nav className="ms-auto">
                         <Nav.Item>
                                 <Dropdown as={ButtonGroup} size="sm">
                                     <Button style={{backgroundColor:'#29487d'}} >
