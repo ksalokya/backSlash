@@ -3,15 +3,17 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import styles from "./styles";
-import { withStyles } from "@material-ui/core/styles";
-import firebase from "firebase";
+import {withStyles} from "@material-ui/core/styles";
 import {ClimbingBoxLoader} from 'react-spinners'
+
+import firebase from "firebase";
+require('firebase/auth')
 
 class SignUp extends React.Component {
 
@@ -22,29 +24,29 @@ class SignUp extends React.Component {
             password: null,
             passwordConfirmation: null,
             signupError: "",
-            loading:true
+            loading: true
         };
     }
 
     componentDidMount() {
-        this.timeHanlerv=  setTimeout(() => {
-            this.setState({ loading: false });
+        this.timeHanlerv = setTimeout(() => {
+            this.setState({loading: false});
         }, 3000)
     }
 
     UNSAFE_componentWillMount() {
-        if(this.timeHanlerv){
+        if (this.timeHanlerv) {
             clearTimeout(this.timeHanlerv);
-            this.timeHanlerv=0;
+            this.timeHanlerv = 0;
         }
     }
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
 
         return (
             <div>
-                {this.state.loading?
+                {this.state.loading ?
                     <div>
                         <h3 className={classes.loader1}> &lt; backSlash &gt;</h3>
                         <ClimbingBoxLoader
@@ -54,16 +56,18 @@ class SignUp extends React.Component {
                             loading={this.state.loading}
                         />
                         <p className={classes.loader2}>An online Text Editor + Notes App.</p>
-                        <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color:'blue'}} href="https://www.linkedin.com/in/salokya-kumar/">Salokya Kumar.</a></p>
+                        <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color: 'blue'}}
+                                                                                           href="https://www.linkedin.com/in/salokya-kumar/">Salokya
+                            Kumar.</a></p>
                     </div>
                     :
                     <Container component="main" maxWidth="xs">
-                        <CssBaseline />
+                        <CssBaseline/>
                         <div className={classes.paper}>
                             <Link className={classes.link} to="/landing">
                             </Link>
                             <Avatar className={classes.avatar}>
-                                <LockOutlinedIcon />
+                                <LockOutlinedIcon/>
                             </Avatar>
                             <Typography component="h1" variant="h5">
                                 Sign up
@@ -72,7 +76,7 @@ class SignUp extends React.Component {
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <TextField
-                                            style={{ color: "#ffffff" }}
+                                            style={{color: "#ffffff"}}
                                             autoFocus
                                             variant="outlined"
                                             required={true}
@@ -111,7 +115,7 @@ class SignUp extends React.Component {
                                         />
                                     </Grid>
                                     {this.state.signupError ? (
-                                        <Grid container justify="center">
+                                        <Grid container justifyContent="center">
                                             <Grid item>
                                                 <Typography className={classes.errorText} variant="body2">
                                                     {this.state.signupError}
@@ -128,14 +132,14 @@ class SignUp extends React.Component {
                                 >
                                     Sign Up
                                 </Button>
-                                <Grid container justify="center">
+                                <Grid container justifyContent="center">
                                     <Grid item>
                                         <Typography
                                             className={classes.link}
                                             variant="body2"
                                         >
                                             Already have an account?{" "}
-                                            <Link to="/login" className={classes.signIn} >Sign in</Link>
+                                            <Link to="/login" className={classes.signIn}>Sign in</Link>
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -151,13 +155,13 @@ class SignUp extends React.Component {
     userTyping = (type, e) => {
         switch (type) {
             case "email":
-                this.setState({ email: e.target.value });
+                this.setState({email: e.target.value});
                 break;
             case "password":
-                this.setState({ password: e.target.value });
+                this.setState({password: e.target.value});
                 break;
             case "passwordConfirmation":
-                this.setState({ passwordConfirmation: e.target.value });
+                this.setState({passwordConfirmation: e.target.value});
                 break;
             default:
                 break;
@@ -168,7 +172,7 @@ class SignUp extends React.Component {
         e.preventDefault();
 
         if (!this.formIsValid()) {
-            this.setState({ signupError: "passwords do not match!" });
+            this.setState({signupError: "passwords do not match!"});
             return;
         }
 
@@ -180,6 +184,8 @@ class SignUp extends React.Component {
                     const userObj = {
                         email: authRes.user.email
                     };
+                    authRes.user.sendEmailVerification();
+                    console.log(authRes)
                     firebase
                         .firestore()
                         .collection("users")
@@ -187,15 +193,15 @@ class SignUp extends React.Component {
                         .set(userObj)
                         .then(
                             () => {
-                                this.props.history.push("/app");
+                                this.props.history.push("/confirm");
                             },
                             dbError => {
-                                this.setState({ signupError: "Failed to add user" });
+                                this.setState({signupError: "Failed to add user"});
                             }
                         );
                 },
                 autherror => {
-                    this.setState({ signupError: autherror.message });
+                    this.setState({signupError: autherror.message});
                 }
             );
     };

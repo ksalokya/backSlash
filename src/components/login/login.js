@@ -67,7 +67,7 @@ class SignIn extends React.Component {
                                     />
                                 </Grid>
                             {this.state.loginError ? (
-                                <Grid container justify="center">
+                                <Grid container justifyContent="center">
                                     <Grid item>
                                         <Typography
                                             className={classes.errorText}
@@ -89,7 +89,7 @@ class SignIn extends React.Component {
                             >
                                 Sign In
                             </Button>
-                            <Grid container justify="center">
+                            <Grid container justifyContent="center">
                                 <Grid item className={classes.linkContainer}>
                                     <Typography className={classes.link} variant="body2">
                                         Don't have an account?{" "}
@@ -123,8 +123,13 @@ class SignIn extends React.Component {
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(
-                () => {
-                    this.props.history.push("/app");
+                (authUser) => {
+                    if(authUser.user.emailVerified === true){
+                        this.props.history.push("/app");
+                    }
+                    else{
+                        this.props.history.push("/confirm");
+                    }
                 },
                 err => {
                     this.setState({ loginError: "server error" });

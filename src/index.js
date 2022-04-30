@@ -5,6 +5,7 @@ import App from "./App"
 import {Route, BrowserRouter as Router,Redirect } from 'react-router-dom';
 import LoginComponent from "./components/login/login";
 import SignupComponent from "./components/signup/signup";
+import ConfirmEmail from "./components/confirmemail/ConfirmEmail";
 
 firebase.initializeApp({
     apiKey: process.env.REACT_APP_API_KEY,
@@ -25,6 +26,7 @@ const routing = (
             <Route path='/login' component={LoginComponent}></Route>
             <Route path='/signup' component={SignupComponent}></Route>
             <Route exact path='/app' component={App}></Route>
+            <Route exact path='/confirm' component={ConfirmEmail}></Route>
         </div>
     </Router>
 )
