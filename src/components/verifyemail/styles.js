@@ -1,5 +1,3 @@
-import {hover} from "@testing-library/user-event/dist/hover";
-
 const styles = theme => ({
     "@global": {
         body: {

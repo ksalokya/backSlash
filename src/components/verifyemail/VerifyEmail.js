@@ -1,7 +1,6 @@
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import {Link} from "react-router-dom";
 import styles from './styles';
 
 import Avatar from "@material-ui/core/Avatar";
