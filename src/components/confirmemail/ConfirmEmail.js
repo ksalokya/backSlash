@@ -8,12 +8,9 @@ import Mail from "@material-ui/icons/Mail";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
+import firebase from "firebase";
+
 class ConfirmEmail extends React.Component {
-
-    constructor() {
-        super();
-    }
-
     render() {
         const { classes } = this.props;
 
@@ -30,6 +27,14 @@ class ConfirmEmail extends React.Component {
                 </div>
             </Container>
         )
+    }
+
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged(async user => {
+            if (!user) {
+                this.props.history.push("/login");
+            }
+        })
     }
 }
 
