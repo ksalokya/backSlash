@@ -1,4 +1,5 @@
 # 📋 backSlash - [Website](https://backslash.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a8c8fb9d-8e54-4b74-bdd6-d8026d03be7c/deploy-status)](https://app.netlify.com/sites/backslash/deploys)
 ## Gather your thoughts and make them even better!
 
 |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/01-intro.png" width="1000" height="400" />| <h3>A Text Editor cum Notes Keeping Web App to organize everything on digital notebook.</h3> |
