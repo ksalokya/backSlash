@@ -1,0 +1,4 @@
+[[redirects]]
+    from = "/verify"
+    to = "/verify"
+    status = 200
