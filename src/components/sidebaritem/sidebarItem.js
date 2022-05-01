@@ -1,50 +1,60 @@
 import React, {Component} from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import styles from './styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { removeHTMLTags } from '../helper/helpers';
+import {removeHTMLTags} from '../helper/helpers';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal,Button} from "react-bootstrap"
+import {Modal, Button} from "react-bootstrap"
 
-class SidebarItemComponent extends Component{
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+class SidebarItemComponent extends Component {
 
     constructor() {
         super();
         this.state = {
-            show:false
+            show: false
         }
+    }
+
+    componentDidMount() {
+        AOS.init({
+            duration: 1000
+        });
     }
 
     handleClose = () => {
         this.setState({
-            show:false
+            show: false
         })
     }
 
     handleShow = () => {
         this.setState({
-            show:true
+            show: true
         })
     }
 
-    render(){
+    render() {
 
-        const {_note,_index,selectedNoteIndex,classes} = this.props;
+        const {_note, _index, selectedNoteIndex, classes} = this.props;
 
-        return(
+        return (
             <div key={_index}>
                 <ListItem
+                    data-aos="zoom-in-up" data-aos-delay={(_index+1)*200} data-aos-duration={(_index+1)*400}
                     className={classes.listItem}
                     selected={selectedNoteIndex === _index}
-                    alignItems='flex-start'>
-                    <div
-                        className={classes.textSection}
-                        onClick={()=>this.selectNote(_note,_index)}>
+                    alignItems='flex-start'
+                    onClick={() => this.selectNote(_note, _index)}
+                >
+                    <div className={classes.textSection} >
                         <ListItemText
                             primary={_note.title}
-                            secondary={removeHTMLTags(_note.body.substring(0,30)) + '...'}
+                            secondary={removeHTMLTags(_note.body.substring(0, 30)) + '...'}
                         />
                     </div>
                     <DeleteIcon onClick={() => {
@@ -53,7 +63,7 @@ class SidebarItemComponent extends Component{
                 </ListItem>
 
                 <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
+                    <Modal.Header>
                         <Modal.Title className={classes.title}>WARNING</Modal.Title>
                     </Modal.Header>
                     <Modal.Body className={classes.bodyText}>
@@ -72,8 +82,8 @@ class SidebarItemComponent extends Component{
         )
     }
 
-    selectNote = (n,i) =>{
-        this.props.selectNote(n,i);
+    selectNote = (n, i) => {
+        this.props.selectNote(n, i);
     }
 
     deleteNote = (note) => {
@@ -81,4 +91,5 @@ class SidebarItemComponent extends Component{
         this.props.deleteNote(note);
     }
 }
+
 export default withStyles(styles)(SidebarItemComponent)

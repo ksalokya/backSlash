@@ -39,6 +39,14 @@ html, body {
     justify-content: center;
 }
 
+.btn-primary{
+    background-color: unset !important;
+}
+
+.dropdown-menu.show{
+    background-color: red;
+}
+
 .MuiListItem-root.Mui-selected {
     background-color: #d4d8e8 !important;
 }

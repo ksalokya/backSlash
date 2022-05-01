@@ -1,8 +1,8 @@
 const styles = theme => ({
     "@global": {
         body: {
-            backgroundColor: '#4158D0',
-            backgroundImage: 'linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)',
+            backgroundColor: '#FA8BFF',
+            backgroundImage: 'linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)',
             overflow: 'hidden'
         }
     },
@@ -13,7 +13,7 @@ const styles = theme => ({
         alignItems: "center",
         border:"solid",
         padding: "50px 18px",
-        borderColor:"orange"
+        borderColor:"#2BFF88"
     },
     logoContainer: {
         display: "flex",
@@ -27,7 +27,7 @@ const styles = theme => ({
     },
     text:{
         textAlign:"center",
-        color:"#F4EBD4"
+        color:"#fff"
     }
 });
 

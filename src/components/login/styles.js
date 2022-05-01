@@ -1,9 +1,9 @@
 const styles = theme => ({
     "@global": {
         body: {
-            backgroundColor: '#4158D0',
-            backgroundImage: 'linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)',
-            overflow:'hidden'
+            backgroundColor: '#FA8BFF',
+            backgroundImage: 'linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)',
+            overflow: 'hidden'
         }
     },
     paper: {
@@ -37,10 +37,11 @@ const styles = theme => ({
     },
     submit: {
         margin: theme.spacing(2, 0, 2),
-        backgroundColor: "#00C170"
+        backgroundColor: "#00C170",
+        color:"#fff"
     },
     errorText: {
-        color: "white",
+        color: "red",
         textAlign: "center"
     },
     linkContainer:{

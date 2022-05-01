@@ -5,6 +5,9 @@ import List from '@material-ui/core/List';
 import { Divider, Button } from '@material-ui/core';
 import SidebarItemComponent from '../sidebaritem/sidebarItem';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 class SidebarComponent extends Component{
     constructor() {
@@ -15,6 +18,12 @@ class SidebarComponent extends Component{
         };
     }
 
+    componentDidMount() {
+        AOS.init({
+            duration: 1000
+        });
+    }
+
     render(){
 
         const {notes,classes,selectedNoteIndex} =this.props
@@ -23,6 +32,7 @@ class SidebarComponent extends Component{
             return(
                 <div className={classes.sidebarContainer}>
                     <Button
+                        data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="800"
                         onClick={this.newNoteBtnClick}
                         className={classes.newNoteBtn}>{!this.state.addingNote ? "New Note" : "Cancel"}</Button>
                     {

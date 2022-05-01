@@ -3,14 +3,17 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import styles from "./styles";
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import firebase from "firebase";
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 class SignIn extends React.Component {
     constructor() {
@@ -22,50 +25,60 @@ class SignIn extends React.Component {
         };
     }
 
+    componentDidMount() {
+        AOS.init({
+            duration: 1000
+        });
+    }
 
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
 
         return (
-                <Container component="main" maxWidth="xs">
-                    <CssBaseline/>
-                    <div className={classes.paper}>
-                        <Avatar className={classes.avatar}>
-                            <LockOutlinedIcon/>
-                        </Avatar>
-                        <Typography component="h1" variant="h5">
-                            Sign In
-                        </Typography>
-                        <form onSubmit={e => this.submitLogin(e)} className={classes.form}>
-                            <Grid container>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required={true}
-                                        fullWidth
-                                        id="email"
-                                        label="Email Address"
-                                        name="email"
-                                        autoComplete="off"
-                                        autoFocus
-                                        onChange={e => this.userTyping("email", e)}
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        variant="outlined"
-                                        margin="normal"
-                                        required={true}
-                                        fullWidth
-                                        autoComplete="off"
-                                        name="password"
-                                        label="Password"
-                                        type="password"
-                                        id="password"
-                                        onChange={e => this.userTyping("password", e)}
-                                    />
-                                </Grid>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline/>
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar} data-aos="zoom-in"
+                            data-aos-delay="100">
+                        <LockOutlinedIcon/>
+                    </Avatar>
+                    <Typography component="h1" variant="h5" data-aos="zoom-in"
+                                data-aos-delay="300">
+                        Sign In
+                    </Typography>
+                    <form onSubmit={e => this.submitLogin(e)} className={classes.form}>
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <TextField
+                                    data-aos="zoom-in"
+                                    data-aos-delay="300"
+                                    variant="outlined"
+                                    margin="normal"
+                                    required={true}
+                                    fullWidth
+                                    id="email"
+                                    label="Email Address"
+                                    name="email"
+                                    autoComplete="off"
+                                    onChange={e => this.userTyping("email", e)}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    data-aos="zoom-in"
+                                    data-aos-delay="500"
+                                    variant="outlined"
+                                    margin="normal"
+                                    required={true}
+                                    fullWidth
+                                    autoComplete="off"
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    id="password"
+                                    onChange={e => this.userTyping("password", e)}
+                                />
+                            </Grid>
                             {this.state.loginError ? (
                                 <Grid container justifyContent="center">
                                     <Grid item>
@@ -79,37 +92,40 @@ class SignIn extends React.Component {
                                     </Grid>
                                 </Grid>
                             ) : null}
+                        </Grid>
+                        <Button
+                            data-aos="zoom-in"
+                            data-aos-delay="500"
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                        >
+                            Sign In
+                        </Button>
+                        <Grid container justifyContent="center">
+                            <Grid item className={classes.linkContainer}>
+                                <Typography className={classes.link} variant="body2" data-aos="zoom-in"
+                                            data-aos-delay="600">
+                                    Don't have an account?{" "}
+                                    <Link to="/signup" className={classes.signUp}>Sign Up</Link>
+                                </Typography>
                             </Grid>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className={classes.submit}
-                            >
-                                Sign In
-                            </Button>
-                            <Grid container justifyContent="center">
-                                <Grid item className={classes.linkContainer}>
-                                    <Typography className={classes.link} variant="body2">
-                                        Don't have an account?{" "}
-                                        <Link to="/signup" className={classes.signUp}>Sign Up</Link>
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                        </form>
-                    </div>
-                </Container>
+                        </Grid>
+                    </form>
+                </div>
+            </Container>
         );
     }
 
     userTyping = (type, e) => {
         switch (type) {
             case "email":
-                this.setState({ email: e.target.value });
+                this.setState({email: e.target.value});
                 break;
             case "password":
-                this.setState({ password: e.target.value });
+                this.setState({password: e.target.value});
                 break;
             default:
                 break;
@@ -124,15 +140,14 @@ class SignIn extends React.Component {
             .signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(
                 (authUser) => {
-                    if(authUser.user.emailVerified === true){
+                    if (authUser.user.emailVerified === true) {
                         this.props.history.push("/app");
-                    }
-                    else{
+                    } else {
                         this.props.history.push("/confirm");
                     }
                 },
                 err => {
-                    this.setState({ loginError: "server error" });
+                    this.setState({loginError: "server error"});
                 }
             );
     };

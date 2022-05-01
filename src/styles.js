@@ -1,7 +1,7 @@
 const styles = theme => ({
     loaderBackground:{
-        backgroundColor: '#4158D0',
-        backgroundImage: 'linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)',
+        backgroundColor: '#FA8BFF',
+        backgroundImage: 'linear-gradient(45deg, #FA8BFF 0%, #2BD2FF 52%, #2BFF88 90%)',
         height:'100vh'
     },
     loader1:{

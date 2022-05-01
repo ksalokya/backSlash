@@ -11,9 +11,13 @@ import Container from "@material-ui/core/Container";
 import styles from "./styles";
 import {withStyles} from "@material-ui/core/styles";
 import {ClimbingBoxLoader} from 'react-spinners'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import firebase from "firebase";
 require('firebase/auth')
+
+
 
 class SignUp extends React.Component {
 
@@ -29,6 +33,10 @@ class SignUp extends React.Component {
     }
 
     componentDidMount() {
+        AOS.init({
+            duration: 1000
+        });
+
         this.timeHanlerv = setTimeout(() => {
             this.setState({loading: false});
         }, 3000)
@@ -66,18 +74,21 @@ class SignUp extends React.Component {
                         <div className={classes.paper}>
                             <Link className={classes.link} to="/landing">
                             </Link>
-                            <Avatar className={classes.avatar}>
+                            <Avatar className={classes.avatar} data-aos="zoom-in"
+                                    data-aos-delay="100">
                                 <LockOutlinedIcon/>
                             </Avatar>
-                            <Typography component="h1" variant="h5">
+                            <Typography component="h1" variant="h5" data-aos="zoom-in"
+                                        data-aos-delay="100">
                                 Sign up
                             </Typography>
                             <form onSubmit={e => this.submitSignup(e)} className={classes.form}>
                                 <Grid container spacing={2}>
                                     <Grid item xs={12}>
                                         <TextField
+                                            data-aos="zoom-in"
+                                            data-aos-delay="200"
                                             style={{color: "#ffffff"}}
-                                            autoFocus
                                             variant="outlined"
                                             required={true}
                                             fullWidth
@@ -90,6 +101,8 @@ class SignUp extends React.Component {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                            data-aos="zoom-in"
+                                            data-aos-delay="300"
                                             variant="outlined"
                                             required={true}
                                             fullWidth
@@ -103,6 +116,8 @@ class SignUp extends React.Component {
                                     </Grid>
                                     <Grid item xs={12}>
                                         <TextField
+                                            data-aos="zoom-in"
+                                            data-aos-delay="400"
                                             variant="outlined"
                                             required={true}
                                             fullWidth
@@ -125,6 +140,8 @@ class SignUp extends React.Component {
                                     ) : null}
                                 </Grid>
                                 <Button
+                                    data-aos="zoom-in"
+                                    data-aos-delay="500"
                                     type="submit"
                                     fullWidth
                                     variant="contained"
@@ -137,6 +154,8 @@ class SignUp extends React.Component {
                                         <Typography
                                             className={classes.link}
                                             variant="body2"
+                                            data-aos="zoom-in"
+                                            data-aos-delay="600"
                                         >
                                             Already have an account?{" "}
                                             <Link to="/login" className={classes.signIn}>Sign in</Link>
@@ -172,7 +191,7 @@ class SignUp extends React.Component {
         e.preventDefault();
 
         if (!this.formIsValid()) {
-            this.setState({signupError: "passwords do not match!"});
+            this.setState({signupError: "Passwords do not match!"});
             return;
         }
 

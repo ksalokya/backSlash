@@ -11,11 +11,11 @@ const styles = theme => ({
         height: '8.5%',
         borderBottom: '1px solid black',
         borderRadius: '10px',
-        backgroundColor: '#29487d',
+        backgroundColor: '#7719aa;',
         marginBottom:'10px',
         color: 'white',
         '&:hover': {
-            backgroundColor: '#88a2ce'
+            backgroundColor: '#E83F24'
         }
     },
     sidebarContainer: {

@@ -2,7 +2,7 @@ const styles = theme => ({
     editorNavbar: {
         marginTop: '1%',
         display: "flex",
-        backgroundColor: "#29487d",
+        backgroundColor: "#7719aa",
         color: "white",
         flexDirection: 'column'
     },
@@ -16,7 +16,7 @@ const styles = theme => ({
         marginRight: "0",
         border: "none",
         fontSize: "20px",
-        backgroundColor: "#29487d",
+        backgroundColor: "#7719aa",
         borderStyle:'solid',
         borderWidth:'2px',
         borderColor:'#fff',
