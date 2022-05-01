@@ -12,13 +12,20 @@ import axios from "axios";
 
 class VerifyEmail extends React.Component {
     componentDidMount() {
-        const id = this.props.match.params.id;
-        this.fetchData(id);
+        const id = this.props.location.search;
+        let idx = id.indexOf("oobCode");
+        let code = id.substring(idx+8, idx + 62);
+        this.fetchData(code);
     }
 
-    fetchData = id => {
-        let url = "https://backslash-1ebbc.firebaseapp.com/__/auth/action?" + id;
-        axios.post(url)
+    fetchData = code => {
+        let url = "https://identitytoolkit.googleapis.com/v1/accounts:update";
+        axios.post(url, {}, {
+            params: {
+                key: process.env.REACT_APP_API_KEY,
+                oobCode: code,
+            }
+        });
     };
 
     render() {
