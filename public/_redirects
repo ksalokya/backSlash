@@ -1,2 +1,4 @@
 /              /signup
 /verify        /verify
+/login         /login
+/signup        /signup

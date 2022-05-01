@@ -28,7 +28,7 @@ const routing = (
             <Route path='/signup' component={SignupComponent}></Route>
             <Route exact path='/app' component={App}></Route>
             <Route exact path='/confirm' component={ConfirmEmail}></Route>
-            <Route exact path='/verify' component={VerifyEmail}></Route>
+            <Route path='/verify' component={VerifyEmail}></Route>
         </div>
     </Router>
 )
