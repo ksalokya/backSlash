@@ -50,6 +50,13 @@ html, body {
 .MuiListItem-root.Mui-selected {
     background-color: #d4d8e8 !important;
 }
+
+@media (max-width: 520px) {
+    .log-out{
+        margin-right: 10px !important;
+    }
+}
+
 .no-note-selected {
     font-size: 48px;
     position: absolute;

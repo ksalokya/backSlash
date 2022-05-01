@@ -21,6 +21,7 @@ class NavbarComponent extends Component {
             show: false
         }
     }
+
     componentDidMount() {
         AOS.init({
             duration: 1000,
@@ -52,7 +53,7 @@ class NavbarComponent extends Component {
                     <Nav className="ms-auto">
                         <Nav.Item>
                             <Dropdown as={ButtonGroup}>
-                                <Button style={{backgroundColor: '#7719aa'}} size="sm" data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1500">
+                                <Button className="log-out" size="sm" data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1500">
                                     <MediaQuery minWidth={720}><Chip icon={<FaceIcon/>} label={user}/></MediaQuery>
                                     <MediaQuery maxWidth={720}><LogoutIcon onClick={() => {
                                         this.handleShow();

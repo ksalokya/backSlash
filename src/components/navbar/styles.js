@@ -1,14 +1,14 @@
 const styles = theme => ({
     navContainer:{
         backgroundColor: '#7719aa',
-        width:'100% !important'
+        width:'100% !important',
     },
     heading:{
-        marginLeft:'5%',
+        marginLeft:'1%',
         color:'#fff !important',
         fontSize:'1.8rem',
         "@media only screen and (max-width:520px)" :{
-            marginLeft: '0'
+            marginLeft: '3%'
         }
     },
     btn:{
