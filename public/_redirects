@@ -1,2 +1,2 @@
 /              /signup              200
-/verify        /verify              200
+/verify/*      /verify              200
