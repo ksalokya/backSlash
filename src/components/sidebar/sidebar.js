@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import styles from './styles';
 import List from '@material-ui/core/List';
-import { Divider, Button } from '@material-ui/core';
+import {Divider, Button} from '@material-ui/core';
 import SidebarItemComponent from '../sidebaritem/sidebarItem';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
-class SidebarComponent extends Component{
+class SidebarComponent extends Component {
     constructor() {
         super();
         this.state = {
-          addingNote:false,
-          title:null
+            addingNote: false,
+            title: null
         };
     }
 
@@ -24,12 +24,12 @@ class SidebarComponent extends Component{
         });
     }
 
-    render(){
+    render() {
 
-        const {notes,classes,selectedNoteIndex} =this.props
+        const {notes, classes, selectedNoteIndex} = this.props
 
-        if(notes){
-            return(
+        if (notes) {
+            return (
                 <div className={classes.sidebarContainer}>
                     <Button
                         data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="800"
@@ -50,10 +50,11 @@ class SidebarComponent extends Component{
                                 >Submit Note</Button>
                             </div> : null
                     }
-                    <List>
+                    <List data-aos="zoom-in" data-aos-delay="1200" data-aos-duration="1000"
+                    >
                         {
-                            notes.map((_note,_index)=>{
-                                return(
+                            notes.map((_note, _index) => {
+                                return (
                                     <div key={_index}>
                                         <SidebarItemComponent
                                             _note={_note}
@@ -70,8 +71,8 @@ class SidebarComponent extends Component{
                     </List>
                 </div>
             );
-        }else{
-            return(
+        } else {
+            return (
                 <div/>
             )
         }
@@ -79,7 +80,7 @@ class SidebarComponent extends Component{
 
     newNoteBtnClick = () => {
         this.setState({
-            title:null,
+            title: null,
             addingNote: !this.state.addingNote
         })
     }
@@ -93,17 +94,18 @@ class SidebarComponent extends Component{
     newNote = () => {
         this.props.newNote(this.state.title);
         this.setState({
-            title:null,
-            addingNote:false
+            title: null,
+            addingNote: false
         })
     }
 
-    selectNote = (n,i) =>{
-        this.props.selectNote(n,i);
+    selectNote = (n, i) => {
+        this.props.selectNote(n, i);
     }
 
-    deleteNote = (note) =>{
+    deleteNote = (note) => {
         this.props.deleteNote(note);
     }
 }
+
 export default withStyles(styles)(SidebarComponent)

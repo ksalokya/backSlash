@@ -8,9 +8,6 @@ import {removeHTMLTags} from '../helper/helpers';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from "react-bootstrap"
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 class SidebarItemComponent extends Component {
 
     constructor() {
@@ -18,12 +15,6 @@ class SidebarItemComponent extends Component {
         this.state = {
             show: false
         }
-    }
-
-    componentDidMount() {
-        AOS.init({
-            duration: 1000
-        });
     }
 
     handleClose = () => {
@@ -45,7 +36,6 @@ class SidebarItemComponent extends Component {
         return (
             <div key={_index}>
                 <ListItem
-                    data-aos="zoom-in-up" data-aos-delay={(_index+1)*200} data-aos-duration={(_index+1)*400}
                     className={classes.listItem}
                     selected={selectedNoteIndex === _index}
                     alignItems='flex-start'
