@@ -1,3 +1,34 @@
+<p align="center">
+    <a href="https://github.com/ksalokya/backSlash/releases">
+        <img alt="GitHub release (latest by semver)" src="https://img.shields.io/github/v/release/ksalokya/backSlash?color=%2360be86&label=Latest%20release&style=for-the-badge&sort=semver">
+    </a>
+    <a href="/LICENSE">
+        <img alt="GitHub" src="https://img.shields.io/github/license/ksalokya/backSlash?color=%2360be86&style=for-the-badge">
+    </a>
+    <a href="https://github.com/ksalokya/backSlash/graphs/contributors">
+        <img alt="GitHub contributors" src="https://img.shields.io/github/contributors-anon/ksalokya/backSlash?color=%2360be86&style=for-the-badge">
+    </a>
+    <a href="https://github.com/ksalokya/backSlash/actions">
+        <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/ksalokya/backSlash/main?color=%2360be86&style=for-the-badge">
+    </a>
+    <a href="https://github.com/devicons/devicon/issues?q=is%3Aopen+is%3Aissue+label%3Arequest%3Aicon">
+        <img alt="GitHub issues by-label" src="https://img.shields.io/github/issues/ksalokya/backSlash/request:icon?color=%2360be86&label=feature%20requests&style=for-the-badge">
+    </a>
+    <a href="https://github.com/ksalokya/backSlash/stargazers">
+        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ksalokya/backSlash?color=%2360be86&label=github%20stars&style=for-the-badge">
+    </a>
+</p>
+<br />
+<div align="center">
+    <a href="https://github.com/ksalokya/backSlash">
+        <img src="https://github.com/ksalokya/backSlash/blob/main/public/favicon.ico" alt="Devicon Logo" height="140" />
+    </a>
+    <h5 align="center">
+         Gather your thoughts and make them even better!
+    </h5>
+</div>
+
+
 # 📋 backSlash - [Website](https://backslash.netlify.app)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a8c8fb9d-8e54-4b74-bdd6-d8026d03be7c/deploy-status)](https://app.netlify.com/sites/backslash/deploys)
 
@@ -11,7 +42,7 @@
 <code><img height="45" alt="Firebase" style="background: white;" src="https://github.com/ksalokya/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg"></code>
 
 
-## Gather your thoughts and make them even better!
+## Features
 |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/01-intro.png" width="1000" height="400" />| <h3>A Text Editor cum Notes Keeping Web App to organize everything on digital notebook.</h3> |
 |---|---|
 
