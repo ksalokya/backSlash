@@ -11,7 +11,7 @@
     <a href="https://github.com/ksalokya/backSlash/actions">
         <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/ksalokya/backSlash/main?color=%2360be86&style=for-the-badge">
     </a>
-    <a href="https://github.com/devicons/devicon/issues?q=is%3Aopen+is%3Aissue+label%3Arequest%3Aicon">
+    <a href="https://github.com/ksalokya/backSlash/issues?q=is%3Aopen+is%3Aissue+label%3Arequest%3Aicon">
         <img alt="GitHub issues by-label" src="https://img.shields.io/github/issues/ksalokya/backSlash/request:icon?color=%2360be86&label=feature%20requests&style=for-the-badge">
     </a>
     <a href="https://github.com/ksalokya/backSlash/stargazers">
