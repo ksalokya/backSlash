@@ -12,10 +12,6 @@ import {Link} from "react-router-dom";
 
 class Instruction extends React.Component {
 
-    constructor() {
-        super();
-    }
-
     render() {
         const { classes } = this.props;
 

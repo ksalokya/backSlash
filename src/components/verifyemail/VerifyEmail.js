@@ -13,8 +13,6 @@ import Container from "@material-ui/core/Container";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
-import firebase from "firebase";
-import {Link} from "react-router-dom";
 import axios from "axios";
 
 import AOS from 'aos';
