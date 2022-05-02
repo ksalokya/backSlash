@@ -21,7 +21,7 @@
 <br />
 <div align="center">
     <a href="https://github.com/ksalokya/backSlash">
-        <img src="https://github.com/ksalokya/backSlash/blob/main/public/favicon.ico" alt="Devicon Logo" height="140" />
+        <img src="https://github.com/ksalokya/backSlash/blob/main/misc/9-logo.png" alt="Devicon Logo" height="140" />
     </a>
     <h5 align="center">
          Gather your thoughts and make them even better!
