@@ -19,6 +19,9 @@
 |---|---|
 |<h3 align="center">Sign-Up</h3>|<h3 align="center">Sign-In</h3>|
 
+|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/08-confirm.png" width="1000" height="400" />| <h3>Forgot your password? Reset it.</h3> |
+|---|---|
+
 |<h3>Create New Content/Note with just a simple click to organize your data.</h3> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/04-new%20note.png" width="400" height="400" />|
 |---|---|
 
