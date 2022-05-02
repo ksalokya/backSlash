@@ -17,8 +17,6 @@ import 'aos/dist/aos.css';
 import firebase from "firebase";
 require('firebase/auth')
 
-
-
 class SignUp extends React.Component {
 
     constructor() {
@@ -146,6 +144,7 @@ class SignUp extends React.Component {
                                     type="submit"
                                     fullWidth
                                     variant="contained"
+                                    color="primary"
                                     className={classes.submit}
                                 >
                                     Sign Up

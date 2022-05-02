@@ -7,10 +7,15 @@ import Avatar from "@material-ui/core/Avatar";
 import Mail from "@material-ui/icons/Mail";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
+import {Link} from "react-router-dom";
 
-import firebase from "firebase";
+class Instruction extends React.Component {
 
-class ConfirmEmail extends React.Component {
+    constructor() {
+        super();
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -22,20 +27,23 @@ class ConfirmEmail extends React.Component {
                         <Mail/>
                     </Avatar>
                     <Typography component="h1" variant="h5" className={classes.text}>
-                        Please check your email and verify it to enjoy the features of backSlash.
+                        Please check your email and follow the steps to enjoy the features of backSlash.
                     </Typography>
+                    <Button
+                        data-aos="zoom-in"
+                        data-aos-delay="500"
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        color="primary"
+                        className={classes.submit}
+                    >
+                        <Link to="/login" className={classes.link}>Back To Login</Link>
+                    </Button>
                 </div>
             </Container>
         )
     }
-
-    componentDidMount = () => {
-        firebase.auth().onAuthStateChanged(async user => {
-            if (!user) {
-                this.props.history.push("/login");
-            }
-        })
-    }
 }
 
-export default withStyles(styles)(ConfirmEmail);
+export default withStyles(styles)(Instruction);

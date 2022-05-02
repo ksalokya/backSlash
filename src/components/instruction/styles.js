@@ -28,6 +28,19 @@ const styles = theme => ({
     text:{
         textAlign:"center",
         color:"#fff"
+    },
+    submit: {
+        margin: theme.spacing(2, 0, 2),
+        backgroundColor: "#00C170",
+        color:"#fff"
+    },
+    link :{
+        color:"#fff",
+        textDecoration : "none",
+        "&:hover" : {
+            color:"#fff",
+            textDecoration : "none",
+        }
     }
 });
 

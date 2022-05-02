@@ -10,10 +10,7 @@ const styles = theme => ({
         marginTop: '40%',
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
-        border:"solid",
-        padding: "50px 18px",
-        borderColor:"#2BFF88"
+        alignItems: "center"
     },
     logoContainer: {
         display: "flex",
@@ -21,36 +18,41 @@ const styles = theme => ({
         padding: "10px",
         alignItems: "center"
     },
+    title: {
+        fontSize: "18px",
+        marginBottom: "5px",
+        textDecoration: "none"
+    },
     avatar: {
         margin: theme.spacing(1),
         backgroundColor: "#00C170"
     },
-    text:{
-        textAlign:"center",
-        color:"#fff"
-    },
-    submit: {
-        margin: theme.spacing(3, 0, 2),
-        backgroundColor: "#00C170",
-        color:"#fff",
-        '&:hover':{
-            color: "#fff",
-        }
-    },
-    title: {
-        fontSize: "18px",
-        marginBottom: "5px",
-        textDecoration: "none",
-        textAlign : "center"
-    },
     form: {
         width: "100%",
-        marginTop: theme.spacing(3)
+        marginTop: theme.spacing(2)
+    },
+    link: {
+        color: "#000000",
+        textDecoration: "none"
+    },
+    submit: {
+        margin: theme.spacing(2, 0, 2),
+        backgroundColor: "#00C170",
+        color:"#fff"
     },
     errorText: {
         color: "red",
         textAlign: "center"
     },
+    linkContainer:{
+        marginTop:"3%",
+    },
+    signUp: {
+        color: "#29487d",
+        textTransform: "upperCase",
+        textDecoration: "underline #29487d",
+        cursor:'pointer'
+    }
 });
 
 export default styles;

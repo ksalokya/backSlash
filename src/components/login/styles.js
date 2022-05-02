@@ -33,7 +33,8 @@ const styles = theme => ({
     },
     link: {
         color: "#000000",
-        textDecoration: "none"
+        textDecoration: "none",
+        textAlign: "center"
     },
     submit: {
         margin: theme.spacing(2, 0, 2),
@@ -50,7 +51,8 @@ const styles = theme => ({
     signUp: {
         color: "#29487d",
         textTransform: "upperCase",
-        textDecoration: "underline #29487d"
+        textDecoration: "underline #29487d",
+        cursor:'pointer'
     }
 });
 

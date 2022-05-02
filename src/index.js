@@ -5,8 +5,9 @@ import App from "./App"
 import {Route, BrowserRouter as Router,Redirect } from 'react-router-dom';
 import LoginComponent from "./components/login/login";
 import SignupComponent from "./components/signup/signup";
-import ConfirmEmail from "./components/confirmemail/ConfirmEmail";
+import Instruction from "./components/instruction/Instruction";
 import VerifyEmail from "./components/verifyemail/VerifyEmail";
+import ResetPassword from "./components/resetpassword/ResetPassword";
 
 firebase.initializeApp({
     apiKey: process.env.REACT_APP_API_KEY,
@@ -27,8 +28,9 @@ const routing = (
             <Route path='/login' component={LoginComponent}></Route>
             <Route path='/signup' component={SignupComponent}></Route>
             <Route exact path='/app' component={App}></Route>
-            <Route exact path='/confirm' component={ConfirmEmail}></Route>
-            <Route path='/verify/:id/:action' component={VerifyEmail}></Route>
+            <Route path='/confirm' component={Instruction}></Route>
+            <Route path='/verify/:id/:action/:email' component={VerifyEmail}></Route>
+            <Route path='/reset' component={ResetPassword}></Route>
         </div>
     </Router>
 )
