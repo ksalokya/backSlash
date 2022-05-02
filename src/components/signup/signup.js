@@ -36,16 +36,9 @@ class SignUp extends React.Component {
             once : true
         });
 
-        this.timeHanlerv = setTimeout(() => {
+        setTimeout(() => {
             this.setState({loading: false});
-        }, 3000)
-    }
-
-    UNSAFE_componentWillMount() {
-        if (this.timeHanlerv) {
-            clearTimeout(this.timeHanlerv);
-            this.timeHanlerv = 0;
-        }
+        }, 2500)
     }
 
     render() {
