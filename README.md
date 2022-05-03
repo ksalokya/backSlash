@@ -46,7 +46,7 @@
 |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/01-intro.png" width="1000" height="400" />| <h3>A Text Editor cum Notes Keeping Web App to organize everything on digital notebook.</h3> |
 |---|---|
 
-|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/02-signup.png" width="700" height="400" /> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/03-signin.png" width="700" height="400" /> |
+|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/02-signup.png" width="700" height="500" /> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/03-signin.png" width="700" height="500" /> |
 |---|---|
 |<h3 align="center">Sign-Up</h3>|<h3 align="center">Sign-In</h3>|
 
@@ -68,5 +68,10 @@
 
 ### Toolbar with many features.
 <img src="https://github.com/ksalokya/backSlash/blob/main/misc/07%20-%20toolbar.png">
+
+### References
+- [Manage Users in Firebase](https://firebase.google.com/docs/auth/web/manage-users)
+- [Firebase Auth REST API ](https://firebase.google.com/docs/reference/rest/auth)
+- [Customize account management emails and SMS messages](https://support.google.com/firebase/answer/7000714?hl=en)
 
 #### Leave a star behind if this repo helped you in any way. 😄
