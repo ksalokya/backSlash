@@ -158,14 +158,16 @@ class SignUp extends React.Component {
 
                                 <Row className="row-container">
                                     <Col xs={6} md={6} lg={6} data-aos="fade-right" data-aos-delay="800">
-                                        <a onClick={this.signInWithFacebook} href="/#" className="social-button"
+                                        <p onClick={this.signInWithFacebook} href="/#" className="social-button"
                                            id="facebook-connect">
-                                            <span>Facebook</span></a>
+                                            <span>Facebook</span>
+                                        </p>
                                     </Col>
                                     <Col xs={6} md={6} lg={6} data-aos="fade-left" data-aos-delay="1000">
-                                        <a onClick={this.signUpWithGoogle} href="/#" className="social-button"
+                                        <p onClick={this.signUpWithGoogle} href="/#" className="social-button"
                                            id="google-connect">
-                                            <span>Google</span></a>
+                                            <span>Google</span>
+                                        </p>
                                     </Col>
                                 </Row>
 
@@ -255,7 +257,6 @@ class SignUp extends React.Component {
                     this.handleAuthError(authError)
                 }
             )
-
     }
 
     submitSignup = e => {
