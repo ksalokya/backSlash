@@ -25,6 +25,8 @@ class SignUp extends React.Component {
             email: null,
             password: null,
             passwordConfirmation: null,
+            signupBtnText : "Sign Up",
+            isSignupBtnEnable : true,
             signupError: "",
             loading: true
         };
@@ -32,13 +34,20 @@ class SignUp extends React.Component {
 
     componentDidMount() {
         AOS.init({
-            duration: 1000,
+            duration: 500,
             once : true
         });
 
         setTimeout(() => {
             this.setState({loading: false});
         }, 2500)
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        AOS.init({
+            duration: 500,
+            once : true
+        });
     }
 
     render() {
@@ -57,8 +66,9 @@ class SignUp extends React.Component {
                         />
                         <p className={classes.loader2}>An online Text Editor + Notes App.</p>
                         <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color: 'blue'}}
-                                                                                           href="https://www.linkedin.com/in/salokya-kumar/">Salokya
-                            Kumar.</a></p>
+                            href="https://www.linkedin.com/in/salokya-kumar/">
+                            Salokya Kumar.</a>
+                        </p>
                     </div>
                     :
                     <Container component="main" maxWidth="xs">
@@ -139,8 +149,9 @@ class SignUp extends React.Component {
                                     variant="contained"
                                     color="primary"
                                     className={classes.submit}
+                                    disabled={!this.state.isSignupBtnEnable}
                                 >
-                                    Sign Up
+                                    {this.state.signupBtnText}
                                 </Button>
                                 <Grid container justifyContent="center">
                                     <Grid item>
@@ -151,7 +162,7 @@ class SignUp extends React.Component {
                                             data-aos-delay="600"
                                         >
                                             Already have an account?{" "}
-                                            <Link to="/login" className={classes.signIn}>Sign in</Link>
+                                            <Link to="/signin" className={classes.signIn}>Sign in</Link>
                                         </Typography>
                                     </Grid>
                                 </Grid>
@@ -188,11 +199,15 @@ class SignUp extends React.Component {
             return;
         }
 
+        this.setState({
+            signupBtnText : "Please Wait...",
+            isSignupBtnEnable : false,
+        })
+
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then(
-                authRes => {
+            .then( authRes => {
                     const userObj = {
                         email: authRes.user.email
                     };
@@ -207,11 +222,15 @@ class SignUp extends React.Component {
                                 this.props.history.push("/confirm");
                             },
                             dbError => {
-                                this.setState({signupError: "Failed to add user"});
+                                this.setState({signupError: "Failed to Sign Up. Try again."});
                             }
                         );
                 },
                 autherror => {
+                    this.setState({
+                        signupBtnText : "Sign Up",
+                        isSignupBtnEnable : true,
+                    })
                     this.setState({signupError: autherror.message});
                 }
             );

@@ -19,14 +19,23 @@ class ResetPassword extends React.Component {
         super();
         this.state = {
             email: null,
+            resetBtnText : "Reset",
+            isResetBtnEnable : true,
             resetError: "",
         };
     }
 
     componentDidMount() {
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 500,
+            once : true
+        });
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        AOS.init({
+            duration: 500,
+            once : true
         });
     }
 
@@ -84,8 +93,9 @@ class ResetPassword extends React.Component {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            disabled={!this.state.isResetBtnEnable}
                         >
-                            Reset
+                            {this.state.resetBtnText}
                         </Button>
                     </form>
                 </div>
@@ -100,12 +110,19 @@ class ResetPassword extends React.Component {
     submitForm = e => {
         e.preventDefault();
 
+        this.setState({
+            resetBtnText : "Please Wait...",
+            isResetBtnEnable : false,
+        })
+
         firebase.auth().sendPasswordResetEmail(this.state.email)
             .then(() => {
                 this.props.history.push("/confirm");
             })
             .catch((error) => {
                 this.setState({
+                    resetBtnText : "Reset",
+                    isResetBtnEnable : true,
                     resetError : true
                 })
             });

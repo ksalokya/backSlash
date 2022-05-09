@@ -17,8 +17,8 @@ class Instruction extends React.Component {
 
     componentDidMount() {
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 500,
+            once : true
         });
     }
 
@@ -35,7 +35,7 @@ class Instruction extends React.Component {
                     <Typography component="h1" variant="h5" className={classes.text}>
                         Please check your email and follow the steps to enjoy the features of backSlash.
                     </Typography>
-                    <Link to="/login" className={classes.link}>
+                    <Link to="/signin" className={classes.link}>
                         <Button
                             data-aos="zoom-in"
                             data-aos-delay="500"

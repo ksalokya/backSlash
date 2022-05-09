@@ -35,8 +35,8 @@ class VerifyEmail extends React.Component {
 
     componentDidMount() {
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 500,
+            once : true
         });
 
         const parsedEmail = this.props.match.params.email;
@@ -200,7 +200,7 @@ class VerifyEmail extends React.Component {
                         passwordChanged: true
                     })
                     setTimeout(()=>{
-                        this.props.history.push("/login");
+                        this.props.history.push("/signin");
                     },2000)
                 }
             });

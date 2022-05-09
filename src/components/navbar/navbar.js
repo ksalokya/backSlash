@@ -24,8 +24,8 @@ class NavbarComponent extends Component {
 
     componentDidMount() {
         AOS.init({
-            duration: 1000,
-            once : true
+            duration: 500,
+            once: true
         });
     }
 
@@ -47,13 +47,15 @@ class NavbarComponent extends Component {
         return (
             <div className={classes.navContainer}>
                 <Navbar>
-                    <Navbar.Brand className={classes.heading} data-aos="fade-right" data-aos-delay="200" data-aos-duration="1500">
+                    <Navbar.Brand className={classes.heading} data-aos="fade-right" data-aos-delay="200"
+                                  data-aos-duration="800">
                         &lt;\&gt; backSlash
                     </Navbar.Brand>
                     <Nav className="ms-auto">
                         <Nav.Item>
                             <Dropdown as={ButtonGroup}>
-                                <Button className="log-out" size="sm" data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1500">
+                                <Button className="log-out" size="sm" data-aos="zoom-in" data-aos-delay="800"
+                                        data-aos-duration="800">
                                     <MediaQuery minWidth={720}><Chip icon={<FaceIcon/>} label={user}/></MediaQuery>
                                     <MediaQuery maxWidth={720}><LogoutIcon onClick={() => {
                                         this.handleShow();
@@ -76,10 +78,10 @@ class NavbarComponent extends Component {
                                 </Button>
 
                                 <MediaQuery minWidth={720}>
-                                    <Dropdown.Toggle split id="dropdown-split-basic" size="sm" data-aos="zoom-in" data-aos-delay="800" data-aos-duration="1500" />
-                                    <Dropdown.Menu style={{right: '0px'}}>
-                                        <Button className={classes.btn} variant="danger" size="sm"
-                                                onClick={this.handleShow}>Sign Out</Button>{' '}
+                                    <Dropdown.Toggle split id="dropdown-split-basic" size="sm" data-aos="zoom-in"
+                                                     data-aos-delay="800" data-aos-duration="800"/>
+                                    <Dropdown.Menu style={{right: "0px", top:"45px"}}>
+                                        <p className={classes.signOut} onClick={this.handleShow}>Sign Out</p>
                                     </Dropdown.Menu>
                                 </MediaQuery>
                             </Dropdown>

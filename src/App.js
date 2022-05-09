@@ -77,7 +77,7 @@ class App extends Component {
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(async user => {
             if (!user) {
-                this.props.history.push("/login");
+                this.props.history.push("/signin");
             } else {
                 firebase
                     .firestore()

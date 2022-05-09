@@ -21,14 +21,23 @@ class SignIn extends React.Component {
         this.state = {
             email: null,
             password: null,
+            loginBtnText : "Sign In",
+            isLoginBtnEnable : true,
             loginError: "",
         };
     }
 
     componentDidMount() {
         AOS.init({
-            duration: 1000,
-            once: true
+            duration: 500,
+            once : true
+        });
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        AOS.init({
+            duration: 500,
+            once : true
         });
     }
 
@@ -102,8 +111,9 @@ class SignIn extends React.Component {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            disabled={!this.state.isLoginBtnEnable}
                         >
-                            Sign In
+                            {this.state.loginBtnText}
                         </Button>
                         <Grid container justifyContent="center">
                             <Grid item className={classes.linkContainer}>
@@ -142,6 +152,11 @@ class SignIn extends React.Component {
     submitLogin = e => {
         e.preventDefault();
 
+        this.setState({
+            loginBtnText : "Please Wait...",
+            isLoginBtnEnable : false,
+        })
+
         firebase
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
@@ -154,7 +169,11 @@ class SignIn extends React.Component {
                     }
                 },
                 err => {
-                    this.setState({loginError: "server error"});
+                    this.setState({
+                        loginBtnText : "Sign In",
+                        isLoginBtnEnable : true,
+                    })
+                    this.setState({loginError: "Server Error"});
                 }
             );
     };
