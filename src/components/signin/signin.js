@@ -119,13 +119,14 @@ class SignIn extends React.Component {
 
                         <Row className="row-container">
                             <Col xs={6} md={6} lg={6} data-aos="fade-right" data-aos-delay="800">
-                                <a onClick={this.signInWithFacebook} className="social-button"
-                                   id="facebook-connect">
-                                    <span>Facebook</span></a>
+                                <a onClick={this.signInWithFacebook} href="#" className="social-button" id="facebook-connect">
+                                    <span>Facebook</span>
+                                </a>
                             </Col>
                             <Col xs={6} md={6} lg={6} data-aos="fade-left" data-aos-delay="1000">
-                                <a onClick={this.signUpWithGoogle} className="social-button" id="google-connect">
-                                    <span>Google</span></a>
+                                <a onClick={this.signUpWithGoogle} href="#" className="social-button" id="google-connect">
+                                    <span>Google</span>
+                                </a>
                             </Col>
                         </Row>
 
