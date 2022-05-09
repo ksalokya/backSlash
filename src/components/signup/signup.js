@@ -13,8 +13,10 @@ import {withStyles} from "@material-ui/core/styles";
 import {ClimbingBoxLoader} from 'react-spinners'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {Row, Col} from 'react-bootstrap';
 
 import firebase from "firebase";
+
 require('firebase/auth')
 
 class SignUp extends React.Component {
@@ -25,17 +27,17 @@ class SignUp extends React.Component {
             email: null,
             password: null,
             passwordConfirmation: null,
-            signupBtnText : "Sign Up",
-            isSignupBtnEnable : true,
+            signupBtnText: "Sign Up",
+            isSignupBtnEnable: true,
             signupError: "",
-            loading: true
+            loading: false
         };
     }
 
     componentDidMount() {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
 
         setTimeout(() => {
@@ -46,7 +48,7 @@ class SignUp extends React.Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
     }
 
@@ -66,7 +68,7 @@ class SignUp extends React.Component {
                         />
                         <p className={classes.loader2}>An online Text Editor + Notes App.</p>
                         <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color: 'blue'}}
-                            href="https://www.linkedin.com/in/salokya-kumar/">
+                                                                                           href="https://www.linkedin.com/in/salokya-kumar/">
                             Salokya Kumar.</a>
                         </p>
                     </div>
@@ -153,13 +155,27 @@ class SignUp extends React.Component {
                                 >
                                     {this.state.signupBtnText}
                                 </Button>
+
+                                <Row className="row-container">
+                                    <Col xs={6} md={6} lg={6} data-aos="fade-right" data-aos-delay="800">
+                                        <a onClick={this.signInWithFacebook} className="social-button"
+                                           id="facebook-connect">
+                                            <span>Facebook</span></a>
+                                    </Col>
+                                    <Col xs={6} md={6} lg={6} data-aos="fade-left" data-aos-delay="1000">
+                                        <a onClick={this.signUpWithGoogle} className="social-button"
+                                           id="google-connect">
+                                            <span>Google</span></a>
+                                    </Col>
+                                </Row>
+
                                 <Grid container justifyContent="center">
                                     <Grid item>
                                         <Typography
                                             className={classes.link}
                                             variant="body2"
                                             data-aos="zoom-in"
-                                            data-aos-delay="600"
+                                            data-aos-delay="1400"
                                         >
                                             Already have an account?{" "}
                                             <Link to="/signin" className={classes.signIn}>Sign in</Link>
@@ -191,6 +207,57 @@ class SignUp extends React.Component {
         }
     };
 
+    addEmailAfterAuth = (res) => {
+        const userObj = {
+            email: res.user.email
+        };
+        firebase
+            .firestore()
+            .collection("users")
+            .doc(res.user.email)
+            .set(userObj)
+            .then(() => {
+                    this.props.history.push("/app");
+                },
+                dbError => {
+                    this.setState({signupError: "Failed to Sign Up. Try again."});
+                }
+            );
+    }
+
+    handleAuthError = (authError) => {
+        this.setState({
+            signupBtnText: "Sign Up",
+            isSignupBtnEnable: true,
+        })
+        this.setState({signupError: authError.message});
+    }
+
+    signUpWithGoogle = () => {
+        let google_provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(google_provider)
+            .then((res) => {
+                    this.addEmailAfterAuth(res)
+                },
+                authError => {
+                    this.handleAuthError(authError)
+                }
+            )
+    }
+
+    signInWithFacebook = () => {
+        let facebook_provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithPopup(facebook_provider)
+            .then((res) => {
+                    this.addEmailAfterAuth(res)
+                },
+                authError => {
+                    this.handleAuthError(authError)
+                }
+            )
+
+    }
+
     submitSignup = e => {
         e.preventDefault();
 
@@ -200,14 +267,14 @@ class SignUp extends React.Component {
         }
 
         this.setState({
-            signupBtnText : "Please Wait...",
-            isSignupBtnEnable : false,
+            signupBtnText: "Please Wait...",
+            isSignupBtnEnable: false,
         })
 
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.state.email, this.state.password)
-            .then( authRes => {
+            .then(authRes => {
                     const userObj = {
                         email: authRes.user.email
                     };
@@ -226,12 +293,12 @@ class SignUp extends React.Component {
                             }
                         );
                 },
-                autherror => {
+                authError => {
                     this.setState({
-                        signupBtnText : "Sign Up",
-                        isSignupBtnEnable : true,
+                        signupBtnText: "Sign Up",
+                        isSignupBtnEnable: true,
                     })
-                    this.setState({signupError: autherror.message});
+                    this.setState({signupError: authError.message});
                 }
             );
     };

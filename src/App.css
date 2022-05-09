@@ -10,22 +10,22 @@ html, body {
     margin-right: 0px !important;
 }
 
-.row-container{
+.row-container {
     margin-left: 0px !important;
     margin-right: 0px !important;
 }
 
-.css-fpqs8j{
+.css-fpqs8j {
     left: 50%;
     right: 50%;
-    top:40vh;
+    top: 40vh;
 }
 
-.navbar-nav{
+.navbar-nav {
     margin-right: 1% !important;
 }
 
-.side-item{
+.side-item {
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
@@ -35,15 +35,15 @@ html, body {
     height: 75vh;
 }
 
-.ql-toolbar{
+.ql-toolbar {
     justify-content: center;
 }
 
-.btn-primary{
+.btn-primary {
     background-color: unset !important;
 }
 
-.dropdown-menu.show{
+.dropdown-menu.show {
     background-color: red;
 }
 
@@ -52,7 +52,7 @@ html, body {
 }
 
 @media (max-width: 520px) {
-    .log-out{
+    .log-out {
         margin-right: 10px !important;
     }
 }
@@ -65,8 +65,7 @@ html, body {
 }
 
 .ql-snow .ql-picker.ql-font .ql-picker-label[data-value='']::before,
-.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='']::before
-{
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='']::before {
     content: 'Default';
 }
 
@@ -77,8 +76,7 @@ html, body {
 }
 
 .ql-snow .ql-picker.ql-font .ql-picker-label[data-value='arial']::before,
-.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='arial']::before
-{
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value='arial']::before {
     content: 'Arial';
     font-family: 'Arial';
 }
@@ -90,3 +88,52 @@ html, body {
 .ql-font-times-new-roman {
     font-family: 'Times New Roman';
 }
+
+.social-button {
+    background-position: 25px 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 5px;
+    margin: 10px auto;
+    padding-left: 20%;
+}
+
+#facebook-connect {
+    background: rgb(60, 90, 154) url('./icons/facebook.svg') no-repeat scroll 5px 0px / 30px 50px padding-box border-box;
+}
+
+#facebook-connect span {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    color: #FFF;
+    margin-left: 15%;
+}
+
+#facebook-connect:hover {
+    transform: scale(1.1);
+}
+
+
+#google-connect {
+    background: rgb(220, 74, 61) url('./icons/google.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
+}
+
+#google-connect span {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    color: #FFF;
+    margin-left: 24%;
+}
+
+#google-connect:hover {
+    transform: scale(1.1);
+}
+

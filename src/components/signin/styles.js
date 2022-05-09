@@ -37,22 +37,19 @@ const styles = theme => ({
         textAlign: "center"
     },
     submit: {
-        margin: theme.spacing(2, 0, 2),
+        margin: theme.spacing(2, 0, 0),
         backgroundColor: "#00C170",
-        color:"#fff"
+        color: "#fff"
     },
     errorText: {
         color: "red",
         textAlign: "center"
     },
-    linkContainer:{
-        marginTop:"3%",
-    },
     signUp: {
         color: "#29487d",
         textTransform: "upperCase",
         textDecoration: "underline #29487d",
-        cursor:'pointer'
+        cursor: 'pointer'
     }
 });
 

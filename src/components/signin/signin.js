@@ -14,6 +14,7 @@ import firebase from "firebase";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {Col, Row} from "react-bootstrap";
 
 class SignIn extends React.Component {
     constructor() {
@@ -21,8 +22,8 @@ class SignIn extends React.Component {
         this.state = {
             email: null,
             password: null,
-            loginBtnText : "Sign In",
-            isLoginBtnEnable : true,
+            loginBtnText: "Sign In",
+            isLoginBtnEnable: true,
             loginError: "",
         };
     }
@@ -30,14 +31,14 @@ class SignIn extends React.Component {
     componentDidMount() {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
     }
 
@@ -115,16 +116,29 @@ class SignIn extends React.Component {
                         >
                             {this.state.loginBtnText}
                         </Button>
+
+                        <Row className="row-container">
+                            <Col xs={6} md={6} lg={6} data-aos="fade-right" data-aos-delay="800">
+                                <a onClick={this.signInWithFacebook} className="social-button"
+                                   id="facebook-connect">
+                                    <span>Facebook</span></a>
+                            </Col>
+                            <Col xs={6} md={6} lg={6} data-aos="fade-left" data-aos-delay="1000">
+                                <a onClick={this.signUpWithGoogle} className="social-button" id="google-connect">
+                                    <span>Google</span></a>
+                            </Col>
+                        </Row>
+
                         <Grid container justifyContent="center">
                             <Grid item className={classes.linkContainer}>
                                 <Typography className={classes.link} variant="body2" data-aos="zoom-in"
-                                            data-aos-delay="600">
+                                            data-aos-delay="1200">
                                     Don't have an account?{" "}
                                     <Link to="/signup" className={classes.signUp}>Sign Up</Link>
                                 </Typography>
 
                                 <Typography className={classes.link} variant="body2" data-aos="zoom-in"
-                                            data-aos-delay="600">
+                                            data-aos-delay="1200">
                                     Forgot Password?{" "}
                                     <Link to="/reset" className={classes.signUp}>Reset</Link>
                                 </Typography>
@@ -149,12 +163,63 @@ class SignIn extends React.Component {
         }
     };
 
+    addEmailAfterAuth = (res) => {
+        const userObj = {
+            email: res.user.email
+        };
+        firebase
+            .firestore()
+            .collection("users")
+            .doc(res.user.email)
+            .set(userObj)
+            .then(
+                () => {
+                    this.props.history.push("/app");
+                },
+                dbError => {
+                    this.setState({signupError: "Failed to Sign In. Try again."});
+                }
+            );
+    }
+
+    handleAuthError = (authError) => {
+        this.setState({
+            signupBtnText: "Sign Up",
+            isSignupBtnEnable: true,
+        })
+        this.setState({signupError: authError.message});
+    }
+
+    signUpWithGoogle = () => {
+        let google_provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(google_provider)
+            .then((res) => {
+                    this.addEmailAfterAuth(res)
+                },
+                authError => {
+                    this.handleAuthError(authError)
+                }
+            )
+    }
+
+    signInWithFacebook = () => {
+        let facebook_provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithPopup(facebook_provider)
+            .then((res) => {
+                    this.addEmailAfterAuth(res)
+                },
+                authError => {
+                    this.handleAuthError(authError)
+                }
+            )
+    }
+
     submitLogin = e => {
         e.preventDefault();
 
         this.setState({
-            loginBtnText : "Please Wait...",
-            isLoginBtnEnable : false,
+            loginBtnText: "Please Wait...",
+            isLoginBtnEnable: false,
         })
 
         firebase
@@ -170,8 +235,8 @@ class SignIn extends React.Component {
                 },
                 err => {
                     this.setState({
-                        loginBtnText : "Sign In",
-                        isLoginBtnEnable : true,
+                        loginBtnText: "Sign In",
+                        isLoginBtnEnable: true,
                     })
                     this.setState({loginError: "Server Error"});
                 }

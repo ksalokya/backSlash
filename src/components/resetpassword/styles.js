@@ -33,7 +33,8 @@ const styles = theme => ({
     },
     link: {
         color: "#000000",
-        textDecoration: "none"
+        textDecoration: "none",
+        textAlign: "center"
     },
     submit: {
         margin: theme.spacing(2, 0, 2),

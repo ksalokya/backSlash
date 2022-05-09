@@ -13,14 +13,15 @@ import firebase from "firebase";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import {Link} from "react-router-dom";
 
 class ResetPassword extends React.Component {
     constructor() {
         super();
         this.state = {
             email: null,
-            resetBtnText : "Reset",
-            isResetBtnEnable : true,
+            resetBtnText: "Reset",
+            isResetBtnEnable: true,
             resetError: "",
         };
     }
@@ -28,14 +29,14 @@ class ResetPassword extends React.Component {
     componentDidMount() {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
     }
 
@@ -97,6 +98,19 @@ class ResetPassword extends React.Component {
                         >
                             {this.state.resetBtnText}
                         </Button>
+                        <Grid container justifyContent="center">
+                            <Grid item>
+                                <Typography
+                                    className={classes.link}
+                                    variant="body2"
+                                    data-aos="zoom-in"
+                                    data-aos-delay="800"
+                                >
+                                    Return to Sign In page.{" "}
+                                    <Link to="/signin" className={classes.signIn}>Sign in</Link>
+                                </Typography>
+                            </Grid>
+                        </Grid>
                     </form>
                 </div>
             </Container>
@@ -111,8 +125,8 @@ class ResetPassword extends React.Component {
         e.preventDefault();
 
         this.setState({
-            resetBtnText : "Please Wait...",
-            isResetBtnEnable : false,
+            resetBtnText: "Please Wait...",
+            isResetBtnEnable: false,
         })
 
         firebase.auth().sendPasswordResetEmail(this.state.email)
@@ -121,9 +135,9 @@ class ResetPassword extends React.Component {
             })
             .catch((error) => {
                 this.setState({
-                    resetBtnText : "Reset",
-                    isResetBtnEnable : true,
-                    resetError : true
+                    resetBtnText: "Reset",
+                    isResetBtnEnable: true,
+                    resetError: true
                 })
             });
     };
