@@ -77,9 +77,9 @@ class VerifyEmail extends React.Component {
                                             variant="contained"
                                             color="primary"
                                             className={classes.submit}
-                                            href="https://backslash.netlify.app/login"
+                                            href="https://backslash.netlify.app/signin"
                                         >
-                                            Login In
+                                            Sign In
                                         </Button>
                                     </div>
                                     :
