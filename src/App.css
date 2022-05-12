@@ -137,6 +137,7 @@ html, body {
     transform: scale(1.1);
 }
 
+/*Lottie */
 [role="button"]{
     cursor: default !important;
 }
