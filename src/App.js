@@ -162,6 +162,7 @@ class App extends Component {
                     selectedNote: null
                 })
         }
+
         firebase
             .firestore()
             .collection('notes')

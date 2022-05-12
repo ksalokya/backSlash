@@ -137,3 +137,6 @@ html, body {
     transform: scale(1.1);
 }
 
+[role="button"]{
+    cursor: default !important;
+}

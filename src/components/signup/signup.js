@@ -8,9 +8,14 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Alert from '@mui/material/Alert';
 import styles from "./styles";
 import {withStyles} from "@material-ui/core/styles";
 import {ClimbingBoxLoader} from 'react-spinners'
+
+import Lottie from 'react-lottie';
+import * as animationData from './animation.json'
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {Row, Col} from 'react-bootstrap';
@@ -36,7 +41,7 @@ class SignUp extends React.Component {
 
     componentDidMount() {
         AOS.init({
-            duration: 500,
+            duration: 1000,
             once: true
         });
 
@@ -47,13 +52,23 @@ class SignUp extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         AOS.init({
-            duration: 500,
+            duration: 1000,
             once: true
         });
     }
 
     render() {
         const {classes} = this.props;
+
+        const defaultOptions = {
+            loop: true,
+            autoplay: true,
+            animationData: animationData,
+            rendererSettings: {
+                preserveAspectRatio: 'xMidYMid slice'
+            }
+        };
+
 
         return (
             <div>
@@ -67,126 +82,143 @@ class SignUp extends React.Component {
                             loading={this.state.loading}
                         />
                         <p className={classes.loader2}>An online Text Editor + Notes App.</p>
-                        <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color: 'blue'}}
-                                                                                           href="https://www.linkedin.com/in/salokya-kumar/">
-                            Salokya Kumar.</a>
+                        <p className={classes.loader2}>
+                            Designed and Developed with ❤️by
+                            <a style={{color: 'blue'}}
+                               href="https://www.linkedin.com/in/salokya-kumar/">
+                                Salokya Kumar.
+                            </a>
                         </p>
                     </div>
                     :
-                    <Container component="main" maxWidth="xs">
-                        <CssBaseline/>
-                        <div className={classes.paper}>
-                            <Link className={classes.link} to="/landing">
-                            </Link>
-                            <Avatar className={classes.avatar} data-aos="zoom-in"
-                                    data-aos-delay="100">
-                                <LockOutlinedIcon/>
-                            </Avatar>
-                            <Typography component="h1" variant="h5" data-aos="zoom-in"
-                                        data-aos-delay="100">
-                                Sign up
-                            </Typography>
-                            <form onSubmit={e => this.submitSignup(e)} className={classes.form}>
-                                <Grid container spacing={2}>
-                                    <Grid item xs={12}>
-                                        <TextField
+                    <Row className="row-container">
+                        <Col lg={6} data-aos="fade-up" data-aos-delay="300" className={classes.lottieAnimation}>
+                            <Lottie
+                                height={550}
+                                width={650}
+                                options={defaultOptions}
+                                isClickToPauseDisabled={true}
+                            />
+                        </Col>
+                        <Col lg={6}>
+                            <Container component="main" maxWidth="sm">
+                                <CssBaseline/>
+                                <div className={classes.paper}>
+                                    <Link className={classes.link} to="/landing">
+                                    </Link>
+                                    <Avatar className={classes.avatar} data-aos="zoom-in"
+                                            data-aos-delay="100">
+                                        <LockOutlinedIcon/>
+                                    </Avatar>
+                                    <Typography component="h1" variant="h5" data-aos="zoom-in"
+                                                data-aos-delay="100">
+                                        Sign up
+                                    </Typography>
+                                    <form onSubmit={e => this.submitSignup(e)} className={classes.form}>
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={12}>
+                                                <TextField
+                                                    data-aos="zoom-in"
+                                                    data-aos-delay="200"
+                                                    style={{color: "#ffffff"}}
+                                                    variant="outlined"
+                                                    required={true}
+                                                    fullWidth
+                                                    id="email"
+                                                    label="Email Address"
+                                                    name="email"
+                                                    autoComplete="off"
+                                                    onChange={e => this.userTyping("email", e)}
+                                                />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <TextField
+                                                    data-aos="zoom-in"
+                                                    data-aos-delay="300"
+                                                    variant="outlined"
+                                                    required={true}
+                                                    fullWidth
+                                                    name="password"
+                                                    label="Password"
+                                                    type="password"
+                                                    id="password"
+                                                    autoComplete="off"
+                                                    onChange={e => this.userTyping("password", e)}
+                                                />
+                                            </Grid>
+                                            <Grid item xs={12}>
+                                                <TextField
+                                                    data-aos="zoom-in"
+                                                    data-aos-delay="400"
+                                                    variant="outlined"
+                                                    required={true}
+                                                    fullWidth
+                                                    name="passwordConfirmation"
+                                                    label="Password Confirmation"
+                                                    type="password"
+                                                    id="password-confirmation"
+                                                    autoComplete="off"
+                                                    onChange={e => this.userTyping("passwordConfirmation", e)}
+                                                />
+                                            </Grid>
+                                            {this.state.signupError ? (
+                                                <Grid container justifyContent="center">
+                                                    <Grid item>
+                                                        <Alert severity="error">
+                                                            <span
+                                                                className={classes.errorText}>{this.state.signupError}
+                                                            </span>
+                                                        </Alert>
+                                                    </Grid>
+                                                </Grid>
+                                            ) : null}
+                                        </Grid>
+                                        <Button
                                             data-aos="zoom-in"
-                                            data-aos-delay="200"
-                                            style={{color: "#ffffff"}}
-                                            variant="outlined"
-                                            required={true}
+                                            data-aos-delay="500"
+                                            type="submit"
                                             fullWidth
-                                            id="email"
-                                            label="Email Address"
-                                            name="email"
-                                            autoComplete="off"
-                                            onChange={e => this.userTyping("email", e)}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <TextField
-                                            data-aos="zoom-in"
-                                            data-aos-delay="300"
-                                            variant="outlined"
-                                            required={true}
-                                            fullWidth
-                                            name="password"
-                                            label="Password"
-                                            type="password"
-                                            id="password"
-                                            autoComplete="off"
-                                            onChange={e => this.userTyping("password", e)}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <TextField
-                                            data-aos="zoom-in"
-                                            data-aos-delay="400"
-                                            variant="outlined"
-                                            required={true}
-                                            fullWidth
-                                            name="passwordConfirmation"
-                                            label="Password Confirmation"
-                                            type="password"
-                                            id="password-confirmation"
-                                            autoComplete="off"
-                                            onChange={e => this.userTyping("passwordConfirmation", e)}
-                                        />
-                                    </Grid>
-                                    {this.state.signupError ? (
+                                            variant="contained"
+                                            color="primary"
+                                            className={classes.submit}
+                                            disabled={!this.state.isSignupBtnEnable}
+                                        >
+                                            {this.state.signupBtnText}
+                                        </Button>
+
+                                        <Row className="row-container">
+                                            <Col xs={6} md={6} lg={6} data-aos="fade-right" data-aos-delay="800">
+                                                <p onClick={this.signInWithFacebook} href="/#" className="social-button"
+                                                   id="facebook-connect">
+                                                    <span>Facebook</span>
+                                                </p>
+                                            </Col>
+                                            <Col xs={6} md={6} lg={6} data-aos="fade-left" data-aos-delay="1000">
+                                                <p onClick={this.signUpWithGoogle} href="/#" className="social-button"
+                                                   id="google-connect">
+                                                    <span>Google</span>
+                                                </p>
+                                            </Col>
+                                        </Row>
+
                                         <Grid container justifyContent="center">
                                             <Grid item>
-                                                <Typography className={classes.errorText} variant="body2">
-                                                    {this.state.signupError}
+                                                <Typography
+                                                    className={classes.link}
+                                                    variant="body2"
+                                                    data-aos="zoom-in"
+                                                    data-aos-delay="1400"
+                                                >
+                                                    Already have an account?{" "}
+                                                    <Link to="/signin" className={classes.signIn}>Sign in</Link>
                                                 </Typography>
                                             </Grid>
                                         </Grid>
-                                    ) : null}
-                                </Grid>
-                                <Button
-                                    data-aos="zoom-in"
-                                    data-aos-delay="500"
-                                    type="submit"
-                                    fullWidth
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.submit}
-                                    disabled={!this.state.isSignupBtnEnable}
-                                >
-                                    {this.state.signupBtnText}
-                                </Button>
-
-                                <Row className="row-container">
-                                    <Col xs={6} md={6} lg={6} data-aos="fade-right" data-aos-delay="800">
-                                        <p onClick={this.signInWithFacebook} href="/#" className="social-button"
-                                           id="facebook-connect">
-                                            <span>Facebook</span>
-                                        </p>
-                                    </Col>
-                                    <Col xs={6} md={6} lg={6} data-aos="fade-left" data-aos-delay="1000">
-                                        <p onClick={this.signUpWithGoogle} href="/#" className="social-button"
-                                           id="google-connect">
-                                            <span>Google</span>
-                                        </p>
-                                    </Col>
-                                </Row>
-
-                                <Grid container justifyContent="center">
-                                    <Grid item>
-                                        <Typography
-                                            className={classes.link}
-                                            variant="body2"
-                                            data-aos="zoom-in"
-                                            data-aos-delay="1400"
-                                        >
-                                            Already have an account?{" "}
-                                            <Link to="/signin" className={classes.signIn}>Sign in</Link>
-                                        </Typography>
-                                    </Grid>
-                                </Grid>
-                            </form>
-                        </div>
-                    </Container>}
+                                    </form>
+                                </div>
+                            </Container>
+                        </Col>
+                    </Row>}
             </div>
         );
     }
