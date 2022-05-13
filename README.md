@@ -21,7 +21,7 @@
 <br />
 <div align="center">
     <a href="https://github.com/ksalokya/backSlash">
-        <img src="https://github.com/ksalokya/backSlash/blob/main/misc/9-logo.png" alt="Devicon Logo" height="140" />
+        <img src="https://github.com/ksalokya/backSlash/blob/main/misc/1-logo.png" alt="Devicon Logo" height="140" />
     </a>
     <h5 align="center">
          Gather your thoughts and make them even better!
@@ -41,33 +41,23 @@
 <code><img height="45" alt="React Bootstrap" style="background: white;" src="https://avatars.githubusercontent.com/u/6853419?s=200&v=4"></code>
 <code><img height="45" alt="Firebase" style="background: white;" src="https://github.com/ksalokya/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg"></code>
 
-
 ## Features
-|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/01-intro.png" width="1000" height="400" />| <h3>A Text Editor cum Notes Keeping Web App to organize everything on digital notebook.</h3> |
-|---|---|
+<img src="https://github.com/ksalokya/backSlash/blob/main/misc/2-signup.png">
+<h2 align="center">
+     Sign Up with email verification!
+</h2>
 
-|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/02-signup.png" width="700" height="500" /> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/03-signin.png" width="700" height="500" /> |
-|---|---|
-|<h3 align="center">Sign-Up</h3>|<h3 align="center">Sign-In</h3>|
+<img src="https://github.com/ksalokya/backSlash/blob/main/misc/3-signin.png">
+<h2 align="center">
+     Sign In on the go!
+</h2>
 
-|<img src="https://github.com/ksalokya/backSlash/blob/main/misc/08-confirm.png" width="1000" height="400" />| <h3>Forgot your password? Reset it.</h3> |
-|---|---|
+<img src="https://github.com/ksalokya/backSlash/blob/main/misc/4-editor.png">
+<h2 align="center">
+     Awesome Text Editor with many features!
+</h2>
 
-|<h3>Create New Content/Note with just a simple click to organize your data.</h3> |<img src="https://github.com/ksalokya/backSlash/blob/main/misc/04-new%20note.png" width="400" height="400" />|
-|---|---|
 
-<div align="center">
-  <img src="https://github.com/ksalokya/backSlash/blob/main/misc/06-use%20as%20report.png" /> 
-  <h3>Use as Text Editor.</h3>    
-</div>
-
-<div align="center">
-  <img src="https://github.com/ksalokya/backSlash/blob/main/misc/05-use%20as%20note.png" /> 
-  <h3>Use as Note Keeping.</h3>    
-</div>  
-
-### Toolbar with many features.
-<img src="https://github.com/ksalokya/backSlash/blob/main/misc/07%20-%20toolbar.png">
 
 ### References
 - [Manage Users in Firebase](https://firebase.google.com/docs/auth/web/manage-users)
