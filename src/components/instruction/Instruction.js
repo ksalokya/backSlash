@@ -49,8 +49,7 @@ class Instruction extends React.Component {
                     </Link>
             </div>
     </Container>
-    )
-    }
+    )}
 }
 
 export default withStyles(styles)(Instruction);

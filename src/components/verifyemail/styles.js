@@ -43,6 +43,14 @@ const styles = theme => ({
         textDecoration: "none",
         textAlign : "center"
     },
+    link :{
+        color:"#fff",
+        textDecoration : "none",
+        "&:hover" : {
+            color:"#fff",
+            textDecoration : "none",
+        }
+    },
     form: {
         width: "100%",
         marginTop: theme.spacing(3)

@@ -20,6 +20,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import {Col, Row} from "react-bootstrap";
 
+import AppBar from "../appbar/appbar"
+
 class SignIn extends React.Component {
     constructor() {
         super();
@@ -60,6 +62,7 @@ class SignIn extends React.Component {
 
         return (
             <div>
+                <AppBar/>
                 <Row className="row-container">
                     <Col lg={6} data-aos="fade-up" data-aos-delay="300" className={classes.lottieAnimation}>
                         <Lottie
@@ -194,7 +197,6 @@ class SignIn extends React.Component {
 
     addEmailAfterAuth = (res) => {
         if (res.additionalUserInfo.isNewUser) {
-            console.log("NewUser")
             const userObj = {
                 email: res.user.email
             };
@@ -259,8 +261,7 @@ class SignIn extends React.Component {
         firebase
             .auth()
             .signInWithEmailAndPassword(this.state.email, this.state.password)
-            .then(
-                (authUser) => {
+            .then((authUser) => {
                     if (authUser.user.emailVerified === true) {
                         this.props.history.push("/app");
                     } else {

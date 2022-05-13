@@ -7,13 +7,13 @@ const styles = theme => ({
         }
     },
     lottieAnimation : {
-        marginTop : "100px",
+        marginTop : "60px",
         "@media only screen and (max-width:1000px)":{
             display:'none'
         }
     },
     paper: {
-        marginTop: '20%',
+        marginTop: '12%',
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

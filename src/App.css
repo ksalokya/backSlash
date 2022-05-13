@@ -64,6 +64,10 @@ html, body {
     left: calc(50% - 165px);
 }
 
+.MuiListItem-root.Mui-selected{
+    background-color: #d63384 !important;
+}
+
 .ql-snow .ql-picker.ql-font .ql-picker-label[data-value='']::before,
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value='']::before {
     content: 'Default';
@@ -138,6 +142,6 @@ html, body {
 }
 
 /*Lottie */
-[role="button"]{
+[role="button"] {
     cursor: default !important;
 }

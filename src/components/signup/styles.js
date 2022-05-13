@@ -25,13 +25,13 @@ const styles = theme => ({
         }
     },
     lottieAnimation : {
-        marginTop : "100px",
+        marginTop : "60px",
         "@media only screen and (max-width:1000px)":{
             display:'none'
         }
     },
     paper: {
-        marginTop: '20%',
+        marginTop: '6%',
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -62,7 +62,7 @@ const styles = theme => ({
         textAlign: "center"
     },
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: theme.spacing(2, 0, 0),
         backgroundColor: "#00C170",
         color: "#fff"
     },

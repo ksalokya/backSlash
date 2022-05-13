@@ -38,6 +38,7 @@ const styles = theme => ({
         width:'100%',
         outline: 'none',
         border: 'none',
+        borderRadius: '2px',
         paddingLeft: '5px',
         '&:focus': {
             outline: '2px solid rgba(81, 203, 238, 1)'
@@ -46,7 +47,7 @@ const styles = theme => ({
     newNoteSubmitBtn: {
         width: '100%',
         backgroundColor: '#d61579',
-        borderRadius: '0px',
+        borderRadius: '6px',
         color: 'white',
         '&:hover' :{
             backgroundColor:'#2596be'

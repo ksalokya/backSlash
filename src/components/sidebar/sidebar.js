@@ -8,32 +8,36 @@ import SidebarItemComponent from '../sidebaritem/sidebarItem';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import Snackbar from '@material-ui/core/Snackbar';
+import Alert from "@mui/material/Alert";
+
 
 class SidebarComponent extends Component {
     constructor() {
         super();
+        this.inputRef = React.createRef();
         this.state = {
             addingNote: false,
-            title: null
+            title: null,
+            openSnackbar: false
         };
     }
 
     componentDidMount() {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
     }
 
     render() {
-
         const {notes, classes, selectedNoteIndex} = this.props
 
         if (notes) {
             return (
                 <div className={classes.sidebarContainer}>
                     <Button
-                        data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="800"
+                        data-aos="zoom-in" data-aos-delay="800" data-aos-duration="800"
                         onClick={this.newNoteBtnClick}
                         className={classes.newNoteBtn}>{!this.state.addingNote ? "New Note" : "Cancel"}</Button>
                     {
@@ -44,6 +48,7 @@ class SidebarComponent extends Component {
                                     className={classes.newNoteInput}
                                     placeholder="Enter note title"
                                     onKeyUp={(e) => this.updateTitle(e.target.value)}
+                                    ref={this.inputRef}
                                 />
                                 <Button
                                     className={classes.newNoteSubmitBtn}
@@ -51,7 +56,7 @@ class SidebarComponent extends Component {
                                 >Submit Note</Button>
                             </div> : null
                     }
-                    <List data-aos="zoom-in" data-aos-delay="1200" data-aos-duration="1000"
+                    <List data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="1000"
                     >
                         {
                             notes.map((_note, _index) => {
@@ -63,6 +68,7 @@ class SidebarComponent extends Component {
                                             selectedNoteIndex={selectedNoteIndex}
                                             selectNote={this.selectNote}
                                             deleteNote={this.deleteNote}
+                                            handleSnackbarOpen={this.handleSnackbarOpen}
                                         />
                                         <Divider/>
                                     </div>
@@ -70,6 +76,20 @@ class SidebarComponent extends Component {
                             })
                         }
                     </List>
+
+                    <Snackbar
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                        open={this.state.openSnackbar}
+                        autoHideDuration={3000}
+                        onClose={this.handleSnackbarClose}
+                    >
+                        <Alert severity="success">
+                            Successfully Deleted.
+                        </Alert>
+                    </Snackbar>
                 </div>
             );
         } else {
@@ -79,10 +99,30 @@ class SidebarComponent extends Component {
         }
     }
 
+    handleSnackbarOpen = (flag) => {
+        this.setState({
+            openSnackbar: flag
+        })
+    };
+
+    handleSnackbarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        this.setState({
+            openSnackbar: false
+        })
+    };
+
     newNoteBtnClick = () => {
         this.setState({
             title: null,
             addingNote: !this.state.addingNote
+        }, () => {
+            if(this.state.addingNote){
+                this.inputRef.current.focus();
+            }
         })
     }
 

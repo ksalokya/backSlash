@@ -3,12 +3,12 @@ import './App.css'
 import firebase from "firebase";
 import EditorComponent from "./components/editor/editor";
 import SidebarComponent from "./components/sidebar/sidebar";
-import NavbarComponent from "./components/navbar/navbar"
 import {Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {ClimbingBoxLoader} from 'react-spinners'
 import styles from './styles';
 import {withStyles} from "@material-ui/core";
+import AppBar from "./components/appbar/appbar"
 
 class App extends Component {
 
@@ -24,9 +24,7 @@ class App extends Component {
     }
 
     render() {
-
         const {classes} = this.props;
-
         return (
             <div>
                 {this.state.loading ?
@@ -45,7 +43,8 @@ class App extends Component {
                     </div>
                     :
                     <div className="app-container">
-                        <NavbarComponent user={this.state.user}/>
+                        <AppBar user={firebase.auth().currentUser}/>
+                        {/*<NavbarComponent user={this.state.user}/>*/}
                         <Row className="row-container">
                             <Col xs={12} md={4} lg={3} className="side-item">
                                 <SidebarComponent
@@ -83,10 +82,8 @@ class App extends Component {
                     .firestore()
                     .collection('notes')
                     .where("user", "==", firebase.auth().currentUser.email)
-                    //automatically get called when collection is updated
                     .onSnapshot(async serverUpdate => {
                         const notes = serverUpdate.docs.map(_doc => {
-                            //grabs data from doc
                             const data = _doc.data();
                             data['id'] = _doc.id;
                             return data;
@@ -95,6 +92,13 @@ class App extends Component {
                             notes: notes,
                             user: firebase.auth().currentUser.email,
                             loading: false
+                        }, () => {
+                            if (!this.state.selectedNoteIndex) {
+                                this.setState({
+                                    selectedNoteIndex: 0,
+                                    selectedNote: this.state.notes[0]
+                                })
+                            }
                         });
                     });
             }

@@ -9,6 +9,9 @@ import Typography from "@material-ui/core/Typography";
 import katex from "katex";
 import "katex/dist/katex.min.css";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 window.katex = katex;
 
 class EditorComponent extends Component {
@@ -23,6 +26,11 @@ class EditorComponent extends Component {
     }
 
     componentDidMount = () => {
+        AOS.init({
+            duration: 500,
+            once : true
+        });
+
         this.setState ({
             text: this.props.selectedNote.body,
             title: this.props.selectedNote.title,
@@ -34,6 +42,11 @@ class EditorComponent extends Component {
     }
 
     componentDidUpdate = () => {
+        AOS.init({
+            duration: 500,
+            once : true
+        });
+
         if (this.props.selectedNote.id !== this.state.id) {
             this.setState ({
                 text: this.props.selectedNote.body,
@@ -51,7 +64,7 @@ class EditorComponent extends Component {
         const {classes} = this.props;
 
         return (
-            <div className={classes.editorContainer}>
+            <div className={classes.editorContainer} data-aos="zoom-in-down" data-aos-delay="800" data-aos-offset="0">
                 <div className={classes.editorNavbar}>
                     <div className={classes.inputContainer}>
                         <BorderColorIcon className={classes.borderIcon}/>

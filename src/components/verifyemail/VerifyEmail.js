@@ -1,5 +1,6 @@
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
+import {Link} from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import styles from './styles';
@@ -19,6 +20,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 
+
 class VerifyEmail extends React.Component {
     constructor() {
         super();
@@ -36,7 +38,7 @@ class VerifyEmail extends React.Component {
     componentDidMount() {
         AOS.init({
             duration: 500,
-            once : true
+            once: true
         });
 
         const parsedEmail = this.props.match.params.email;
@@ -45,8 +47,8 @@ class VerifyEmail extends React.Component {
             email: parsedEmail,
             code: params.oobCode,
             isVerified: (params.mode === "resetPassword")
-        },() =>{
-            if(!this.state.isVerified){
+        }, () => {
+            if (!this.state.isVerified) {
                 this.fetchData(this.state.code)
             }
         })
@@ -69,18 +71,20 @@ class VerifyEmail extends React.Component {
                                 !this.state.isVerified ?
                                     <div>
                                         <Typography component="h1" variant="h5" className={classes.text}>
-                                            Your email '{this.state.email}' is verified, you can login to enjoy the features of backSlash.
+                                            Your email '{this.state.email}' is verified, you can login to enjoy the
+                                            features of backSlash.
                                         </Typography>
-                                        <Button
-                                            type="submit"
-                                            fullWidth
-                                            variant="contained"
-                                            color="primary"
-                                            className={classes.submit}
-                                            href="https://backslash.netlify.app/signin"
-                                        >
-                                            Sign In
-                                        </Button>
+                                        <Link to="/signin" className={classes.link}>
+                                            <Button
+                                                type="submit"
+                                                fullWidth
+                                                variant="contained"
+                                                color="primary"
+                                                className={classes.submit}
+                                            >
+                                                Sign In
+                                            </Button>
+                                        </Link>
                                     </div>
                                     :
                                     <div>
@@ -152,7 +156,7 @@ class VerifyEmail extends React.Component {
                         :
                         <div className={classes.paper}>
                             <Tick size={200}></Tick>
-                            <h3 style={{color:"#fff", textDecoration:"underline"}} >Success !</h3>
+                            <h3 style={{color: "#fff", textDecoration: "underline"}}>Success !</h3>
                         </div>
                 }
             </Container>
@@ -186,7 +190,7 @@ class VerifyEmail extends React.Component {
     }
 
     fetchData = (code) => {
-        if(this.state.isVerified === true){
+        if (this.state.isVerified === true) {
             let url = "https://identitytoolkit.googleapis.com/v1/accounts:resetPassword";
             axios.post(url, {}, {
                 params: {
@@ -199,13 +203,12 @@ class VerifyEmail extends React.Component {
                     this.setState({
                         passwordChanged: true
                     })
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         this.props.history.push("/signin");
-                    },2000)
+                    }, 2000)
                 }
             });
-        }
-        else{
+        } else {
             let url = "https://identitytoolkit.googleapis.com/v1/accounts:update";
             axios.post(url, {}, {
                 params: {

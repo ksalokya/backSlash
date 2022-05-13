@@ -1,6 +1,11 @@
 const styles = theme => ({
     listItem: {
-        cursor: 'pointer'
+        cursor: 'pointer',
+        border : "1.5px",
+        borderStyle : "solid",
+        borderColor : "#dc3545",
+        borderRadius: '10px',
+        marginBottom : "5px"
     },
     textSection: {
         maxWidth: '85%'

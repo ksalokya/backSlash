@@ -6,7 +6,16 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DeleteIcon from '@material-ui/icons/Delete';
 import {removeHTMLTags} from '../helper/helpers';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal, Button} from "react-bootstrap"
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import Slide from "@material-ui/core/Slide";
+import DialogActions from "@material-ui/core/DialogActions";
+import Button from "@material-ui/core/Button";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 class SidebarItemComponent extends Component {
 
@@ -15,6 +24,55 @@ class SidebarItemComponent extends Component {
         this.state = {
             show: false
         }
+    }
+
+    render() {
+
+        const {_note, _index, selectedNoteIndex, handleSnackbarOpen, classes} = this.props;
+
+        return (
+            <div key={_index}>
+                <ListItem
+                    className={classes.listItem}
+                    selected={selectedNoteIndex === _index}
+                    alignItems='flex-start'
+                    onClick={() => this.selectNote(_note, _index)}
+                >
+                    <div className={classes.textSection}>
+                        <ListItemText
+                            primary={_note.title}
+                            secondary={removeHTMLTags(_note.body.substring(0, 30)) + '...'}
+                        />
+                    </div>
+                    <DeleteIcon onClick={() => {
+                        this.handleShow();
+                    }} className={classes.deleteIcon}></DeleteIcon>
+                </ListItem>
+
+                <Dialog
+                    open={this.state.show}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={this.handleClose}
+                    aria-labelledby="alert-dialog-slide-title"
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-slide-description">
+                            Are you sure you want to delete <span><u>{_note.title}</u></span>?
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                            Disagree
+                        </Button>
+                        <Button onClick={() => {this.deleteNote(_note);this.handleSnackbar();}} color="secondary">
+                            Agree
+                        </Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+        )
     }
 
     handleClose = () => {
@@ -29,49 +87,6 @@ class SidebarItemComponent extends Component {
         })
     }
 
-    render() {
-
-        const {_note, _index, selectedNoteIndex, classes} = this.props;
-
-        return (
-            <div key={_index}>
-                <ListItem
-                    className={classes.listItem}
-                    selected={selectedNoteIndex === _index}
-                    alignItems='flex-start'
-                    onClick={() => this.selectNote(_note, _index)}
-                >
-                    <div className={classes.textSection} >
-                        <ListItemText
-                            primary={_note.title}
-                            secondary={removeHTMLTags(_note.body.substring(0, 30)) + '...'}
-                        />
-                    </div>
-                    <DeleteIcon onClick={() => {
-                        this.handleShow();
-                    }} className={classes.deleteIcon}></DeleteIcon>
-                </ListItem>
-
-                <Modal show={this.state.show} onHide={this.handleClose}>
-                    <Modal.Header>
-                        <Modal.Title className={classes.title}>WARNING</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body className={classes.bodyText}>
-                        Are you sure you want to delete : <strong>{_note.title} </strong> ?
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="warning" onClick={this.handleClose}>
-                            Close
-                        </Button>
-                        <Button variant="danger" onClick={() => this.deleteNote(_note)}>
-                            Save Changes
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
-            </div>
-        )
-    }
-
     selectNote = (n, i) => {
         this.props.selectNote(n, i);
     }
@@ -80,6 +95,10 @@ class SidebarItemComponent extends Component {
         this.handleClose();
         this.props.deleteNote(note);
     }
+
+    handleSnackbar = () => {
+        this.props.handleSnackbarOpen(true)
+    };
 }
 
 export default withStyles(styles)(SidebarItemComponent)
