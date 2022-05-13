@@ -11,7 +11,7 @@ const styles = theme => ({
         color: '#fff !important',
         fontSize: '2rem !important',
         "@media only screen and (max-width:520px)": {
-            marginLeft: '3%'
+            fontSize: '1.6rem !important',
         }
     },
     iconBtn: {
@@ -49,7 +49,7 @@ const styles = theme => ({
     },
    profileDetailsText:{
        "@media only screen and (max-width:520px)": {
-           fontSize: "1rem"
+           fontSize: "0.9rem"
        }
    },
 });
