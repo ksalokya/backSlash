@@ -28,7 +28,7 @@ class SidebarItemComponent extends Component {
 
     render() {
 
-        const {_note, _index, selectedNoteIndex, handleSnackbarOpen, classes} = this.props;
+        const {_note, _index, selectedNoteIndex, classes} = this.props;
 
         return (
             <div key={_index}>
