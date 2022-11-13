@@ -36,8 +36,8 @@ class EditorComponent extends Component {
             title: this.props.selectedNote.title,
             id: this.props.selectedNote.id,
             update: this.props.selectedNote.timestamp
-                ? this.props.selectedNote.timestamp.toDate ().toDateString ()
-                : new Date ().toDateString ()
+                ? this.props.selectedNote.timestamp.toDate().toDateString()
+                : new Date().toDateString()
         });
     }
 
@@ -54,7 +54,7 @@ class EditorComponent extends Component {
                 id: this.props.selectedNote.id,
                 update: this.props.selectedNote.timestamp
                     ? this.props.selectedNote.timestamp.toDate ().toDateString ()
-                    : new Date ().toString ()
+                    : new Date().toDateString()
             });
         }
     };

@@ -7,17 +7,23 @@ const styles = theme => ({
         }
     },
     lottieAnimation : {
-        marginTop : "60px",
+        marginTop : "4%",
+        "@media only screen and (min-height:950px)":{
+            marginTop: '8%',
+        },
         "@media only screen and (max-width:1000px)":{
             display:'none'
         }
     },
     paper: {
-        marginTop: '12%',
+        marginTop: '15%',
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        overflow: "hidden"
+        overflow: "hidden",
+        "@media only screen and (min-height:950px)":{
+            marginTop: '28%',
+        }
     },
     logoContainer: {
         display: "flex",

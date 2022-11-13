@@ -126,28 +126,24 @@ class App extends Component {
     }
 
     newNote = async (title) => {
-        const note = {
-            title: title,
-            body: ''
-        };
         const newFromDB = await firebase
             .firestore()
             .collection('notes')
             .add({
-                title: note.title,
-                body: note.body,
+                title: title,
+                body: '',
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 user: firebase.auth().currentUser.email
-            });
+        });
         const newID = newFromDB.id;
-        await this.setState({
-            notes: [...this.state.notes, note]
-        })
+        await this.setState({ 
+            notes: [...this.state.notes] 
+        });
         const newNoteIndex = this.state.notes.indexOf(this.state.notes.filter(_note => _note.id === newID)[0]);
-        this.setState({
-            selectedNote: this.state.notes[newNoteIndex],
-            selectedNoteIndex: newNoteIndex
-        })
+        this.setState({ 
+            selectedNote: this.state.notes[newNoteIndex], 
+            selectedNoteIndex: newNoteIndex 
+        });
     }
 
     deleteNote = async (note) => {
