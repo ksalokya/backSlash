@@ -20,9 +20,6 @@
 </p>
 <br />
 <div align="center">
-    <a href="https://github.com/ksalokya/backSlash">
-        <img src="https://github.com/ksalokya/backSlash/blob/main/misc/1-logo.png" alt="Devicon Logo" height="140" />
-    </a>
     <h5 align="center">
          Gather your thoughts and make them even better!
     </h5>
@@ -31,33 +28,6 @@
 
 # 📋 backSlash - [Website](https://backslash.netlify.app)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a8c8fb9d-8e54-4b74-bdd6-d8026d03be7c/deploy-status)](https://app.netlify.com/sites/backslash/deploys)
-
-### Technologies Used
-<code><img height="45" alt="HTML5" style="background: white;" src="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg"></code>
-<code><img height="45" alt="CSS3" style="background: white;" src="https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg"></code>
-<code><img height="45" alt="JavaScript" style="background: white;" src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg"></code>
-<code><img height="45" alt="React" style="background: white;" src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg"></code>
-<code><img height="45" alt="Material UI" style="background: white;" src="https://github.com/devicons/devicon/blob/master/icons/materialui/materialui-original.svg"></code>
-<code><img height="45" alt="React Bootstrap" style="background: white;" src="https://avatars.githubusercontent.com/u/6853419?s=200&v=4"></code>
-<code><img height="45" alt="Firebase" style="background: white;" src="https://github.com/ksalokya/devicon/blob/master/icons/firebase/firebase-plain-wordmark.svg"></code>
-
-## Features
-<img src="https://github.com/ksalokya/backSlash/blob/main/misc/2-signup.png">
-<h2 align="center">
-     Sign Up with email verification!
-</h2>
-
-<img src="https://github.com/ksalokya/backSlash/blob/main/misc/3-signin.png">
-<h2 align="center">
-     Sign In on the go!
-</h2>
-
-<img src="https://github.com/ksalokya/backSlash/blob/main/misc/4-editor.png">
-<h2 align="center">
-     Awesome Text Editor with many features!
-</h2>
-
-
 
 ### References
 - [Manage Users in Firebase](https://firebase.google.com/docs/auth/web/manage-users)
