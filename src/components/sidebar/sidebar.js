@@ -39,21 +39,21 @@ class SidebarComponent extends Component {
                     <Button
                         data-aos="zoom-in" data-aos-delay="800" data-aos-duration="800"
                         onClick={this.newNoteBtnClick}
-                        className={classes.newNoteBtn}>{!this.state.addingNote ? "New Note" : "Cancel"}</Button>
+                        className={classes.newNoteBtn}>{!this.state.addingNote ? "New Document" : "Cancel"}</Button>
                     {
                         this.state.addingNote ?
                             <div>
                                 <input
                                     type="text"
                                     className={classes.newNoteInput}
-                                    placeholder="Enter note title"
+                                    placeholder="Enter Document Title"
                                     onKeyUp={(e) => this.updateTitle(e.target.value)}
                                     ref={this.inputRef}
                                 />
                                 <Button
                                     className={classes.newNoteSubmitBtn}
                                     onClick={this.newNote}
-                                >Submit Note</Button>
+                                >Submit</Button>
                             </div> : null
                     }
                     <List data-aos="zoom-in" data-aos-delay="1000" data-aos-duration="1000"

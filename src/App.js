@@ -1,13 +1,13 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import './App.css'
 import firebase from "firebase";
 import EditorComponent from "./components/editor/editor";
 import SidebarComponent from "./components/sidebar/sidebar";
-import {Row, Col} from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {ClimbingBoxLoader} from 'react-spinners'
+import { ClimbingBoxLoader } from 'react-spinners'
 import styles from './styles';
-import {withStyles} from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import AppBar from "./components/appbar/appbar"
 
 class App extends Component {
@@ -24,26 +24,23 @@ class App extends Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
         return (
             <div>
                 {this.state.loading ?
                     <div className={classes.loaderBackground}>
-                        <h3 className={classes.loader1}> &lt; backSlash &gt;</h3>
+                        <h3 className={classes.loader1}> &lt;\&gt; backSlash &nbsp;</h3>
                         <ClimbingBoxLoader
                             color={"#fff"}
                             speedMultiplier="1.2"
                             size={30}
                             loading={this.state.loading}
                         />
-                        <p className={classes.loader2}>An online Text Editor + Notes App.</p>
-                        <p className={classes.loader2}>Designed and Developed with ❤️by <a style={{color: 'blue'}}
-                                                                                           href="https://www.linkedin.com/in/salokya-kumar/">Salokya
-                            Kumar.</a></p>
+                        <p className={classes.loader2}>Gather your thoughts and make them even better!</p>
                     </div>
                     :
                     <div className="app-container">
-                        <AppBar user={firebase.auth().currentUser}/>
+                        <AppBar user={firebase.auth().currentUser} />
                         {/*<NavbarComponent user={this.state.user}/>*/}
                         <Row className="row-container">
                             <Col xs={12} md={4} lg={3} className="side-item">
@@ -134,21 +131,21 @@ class App extends Component {
                 body: '',
                 timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                 user: firebase.auth().currentUser.email
-        });
+            });
         const newID = newFromDB.id;
-        await this.setState({ 
-            notes: [...this.state.notes] 
+        await this.setState({
+            notes: [...this.state.notes]
         });
         const newNoteIndex = this.state.notes.indexOf(this.state.notes.filter(_note => _note.id === newID)[0]);
-        this.setState({ 
-            selectedNote: this.state.notes[newNoteIndex], 
-            selectedNoteIndex: newNoteIndex 
+        this.setState({
+            selectedNote: this.state.notes[newNoteIndex],
+            selectedNoteIndex: newNoteIndex
         });
     }
 
     deleteNote = async (note) => {
         const noteIndex = this.state.notes.indexOf(note);
-        await this.setState({notes: this.state.notes.filter(_note => _note !== note)})
+        await this.setState({ notes: this.state.notes.filter(_note => _note !== note) })
         if (this.state.selectedNoteIndex === noteIndex) {
             this.setState({
                 selectedNoteIndex: null,
