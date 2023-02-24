@@ -24,7 +24,7 @@
     <a href="https://github.com/ksalokya/backSlash">
         <img src="https://user-images.githubusercontent.com/72447529/221115136-f72b9cf5-3728-4800-b1b5-222762123328.png" alt="Devicon Logo" height="140" />
     </a>
-    <h5 align="center">>
+    <h5 align="center">
          Gather your thoughts and make them even better!
     </h5>
 </div>
