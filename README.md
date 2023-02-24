@@ -19,8 +19,12 @@
     </a>
 </p>
 <br />
+
 <div align="center">
-    <h5 align="center">
+    <a href="https://github.com/ksalokya/backSlash">
+        <img src="https://user-images.githubusercontent.com/72447529/221115136-f72b9cf5-3728-4800-b1b5-222762123328.png" alt="Devicon Logo" height="140" />
+    </a>
+    <h5 align="center">>
          Gather your thoughts and make them even better!
     </h5>
 </div>
@@ -29,7 +33,12 @@
 # 📋 backSlash - [Website](https://backslash.netlify.app)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a8c8fb9d-8e54-4b74-bdd6-d8026d03be7c/deploy-status)](https://app.netlify.com/sites/backslash/deploys)
 
-### References
+![2-signup](https://user-images.githubusercontent.com/72447529/221114795-24081511-3683-476d-a121-8bf381e38779.png)
+![3-signin](https://user-images.githubusercontent.com/72447529/221114800-ff6dca39-6bcc-43ed-8be8-dca282e9408e.png)
+![4-editor](https://user-images.githubusercontent.com/72447529/221114802-49c785cb-81ea-4437-8f1b-ac9746b16da0.jpg)
+
+### References!
+
 - [Manage Users in Firebase](https://firebase.google.com/docs/auth/web/manage-users)
 - [Firebase Auth REST API ](https://firebase.google.com/docs/reference/rest/auth)
 - [Customize account management emails and SMS messages](https://support.google.com/firebase/answer/7000714?hl=en)
